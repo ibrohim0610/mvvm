@@ -20,7 +20,7 @@ class BottomNavBar2 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             SvgPicture.asset("assets/svg/home.svg"),
-            SvgPicture.asset("assets/svg/massages.svg"),
+            SvgPicture.asset("assets/svg/community.svg"),
             SvgPicture.asset("assets/svg/categories.svg"),
             SvgPicture.asset("assets/svg/profile.svg"),
           ],
