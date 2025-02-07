@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:recipe_app/profile/presentation/pages/profile_view_model.dart';
+import 'package:recipe_app/profile/presentation/widgets/favorites_item.dart';
+import 'package:recipe_app/profile/presentation/widgets/profile_item.dart';
+
 import '../widgets/bottom_nav_bar.dart';
-import '../widgets/favorites_item.dart';
 import '../widgets/follow_profile.dart';
-import '../widgets/profile_item.dart';
 import '../widgets/share_profile.dart';
 
 
@@ -180,7 +181,7 @@ class ProfileView extends StatelessWidget implements PreferredSizeWidget {
             extendBody: true,
             body: TabBarView(
               children: [
-                GridView(
+                GridView.builder(
                   padding: EdgeInsets.all(8),
                   shrinkWrap: true,
                   gridDelegate:
@@ -188,50 +189,17 @@ class ProfileView extends StatelessWidget implements PreferredSizeWidget {
                     crossAxisCount: 2,
                     mainAxisSpacing: 60,
                   ),
-                  children: [
-                    CategoryItem(
-                      image: "assets/images/shramp.png",
-                      title: "Cripsy Shrimp",
-                      desc: "A feast for the senses",
-                      rating: "4",
-                      duration: "20min",
-                    ),
-                    CategoryItem(
-                      image: "assets/images/lunch.png",
-                      title: "Chicken Wings",
-                      desc: "Delicious and juicy wings",
-                      rating: "5",
-                      duration: "30min",
-                    ),
-                    CategoryItem(
-                      image: "assets/images/dessert.png",
-                      title: "Colros Macarons ",
-                      desc: "Sweet bites full of elegance",
-                      rating: "4",
-                      duration: "40min",
-                    ),
-                    CategoryItem(
-                      image: "assets/images/colada.png",
-                      title: "Pina Colada",
-                      desc: "a tropical explosion in every sip",
-                      rating: "4",
-                      duration: "30min",
-                    ),
-                    CategoryItem(
-                      image: "assets/images/rolls.png",
-                      title: "Spring Rolls",
-                      desc: "Delicate abd full of flavor",
-                      rating: "4",
-                      duration: "30min",
-                    ),
-                    CategoryItem(
-                      image: "assets/images/french_toast.png",
-                      title: "French Toast",
-                      desc: "Delicious slices of bread",
-                      rating: "4",
-                      duration: "30min",
-                    ),
-                  ],
+                  itemCount: viewModel.recipes.length,
+                  itemBuilder: (context, index){
+                    return CategoryItem(
+                      image: viewModel.recipes[index].photo,
+                      title: viewModel.recipes[index].title,
+                      desc: viewModel.recipes[index].description,
+                      rating: viewModel.recipes[index].rating,
+                      duration: viewModel.recipes[index].timeRequired,
+                    );
+                  },
+                  //
                 ),
                 ListView(
                   padding: EdgeInsets.all(8),
@@ -267,3 +235,4 @@ class ProfileView extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
+

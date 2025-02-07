@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -12,7 +11,9 @@ class CategoryItem extends StatelessWidget {
     required this.duration,
   });
 
-  final String image, title, desc, rating, duration;
+  final String image, title, desc;
+  final num rating;
+  final num duration;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +23,13 @@ class CategoryItem extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             Positioned(
-              bottom: -85,
+              bottom: -150,
               right: 5,
               left: 5,
               child: Container(
                 padding: EdgeInsets.all(5),
                 width: 159,
-                height: 88,
+                height: 200,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFFDF9),
                   borderRadius: BorderRadius.only(
@@ -64,7 +65,7 @@ class CategoryItem extends StatelessWidget {
                           spacing: 5,
                           children: [
                             Text(
-                              rating,
+                              rating.toString(),
                               style: TextStyle(
                                   color: Color(0xFFEC888D),
                                   fontSize: 12,
@@ -78,7 +79,7 @@ class CategoryItem extends StatelessWidget {
                           spacing: 5,
                           children: [
                             Text(
-                              duration,
+                              "${duration.toString()} min",
                               style: TextStyle(
                                 color: Color(0xFFEC888D),
                                 fontSize: 12,
@@ -97,7 +98,7 @@ class CategoryItem extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(14),
               child: Image(
-                image: AssetImage(image),
+                image: NetworkImage(image),
                 width: 169,
                 height: 153,
                 fit: BoxFit.cover,
