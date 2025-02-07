@@ -11,7 +11,7 @@ class RecipeDetailRepository {
   late RecipeModel recipe;
 
   Future<RecipeModel> fetchRecipeById(int recipeId) async {
-    var rawRecipe = await client.fetchRecipeById(recipeId);
+    var rawRecipe = await client.fetchRecipesById(recipeId);
     recipe = RecipeModel.fromJson(rawRecipe);
     return recipe;
   }
