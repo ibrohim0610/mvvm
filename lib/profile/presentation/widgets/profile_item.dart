@@ -71,7 +71,7 @@ class CategoryItem extends StatelessWidget {
                                   fontWeight: FontWeight.w400,
                                   decoration: TextDecoration.none),
                             ),
-                            SvgPicture.asset("assets/icons/star.svg"),
+                            SvgPicture.asset("assets/svg/star.svg"),
                           ],
                         ),
                         Row(
@@ -113,7 +113,7 @@ class CategoryItem extends StatelessWidget {
                     borderRadius: BorderRadius.circular(14),
                     color: Color(0xFFFD5D69)),
                 child: SvgPicture.asset(
-                  "assets/icons/heart.svg",
+                  "assets/svg/heart.svg",
                   fit: BoxFit.none,
                 ),
               ),

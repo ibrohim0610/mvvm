@@ -103,7 +103,7 @@ class ProfileView extends StatelessWidget implements PreferredSizeWidget {
                           child: IconButton(
                             onPressed: () {},
                             icon: SvgPicture.asset(
-                              "assets/svg/heart.svg",
+                              "assets/svg/plus.svg",
                               fit: BoxFit.cover,
                             ),
                           ),

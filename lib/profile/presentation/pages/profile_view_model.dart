@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:mvvm/categories_profile/data/models/profile_model.dart';
-import 'package:mvvm/categories_profile/data/repositories/profile_repository.dart';
+import '../../data/models/profile_model.dart';
+import '../../data/repositories/profile_repository.dart';
 
 
 class ProfileViewModel extends ChangeNotifier{

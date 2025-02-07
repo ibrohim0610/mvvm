@@ -32,7 +32,7 @@ dev_dependencies:
 
 flutter:
   assets:
-    - assets/icons/
+    - assets/svg/
     - assets/images/
 
   fonts:
