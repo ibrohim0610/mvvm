@@ -26,7 +26,7 @@ class RecipeRating extends StatelessWidget {
     );
 
     RecipeSvgImage image = RecipeSvgImage(
-      image: "assets/icons/star.svg",
+      image: "assets/svg/star.svg",
       width: 10,
       height: 10,
       color: iconColor,

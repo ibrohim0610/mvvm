@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipe_app/categories/data/models/category_model.dart';
 import 'package:recipe_app/core/core.dart';
+
+import '../../../categories/data/models/categories_model.dart';
+import '../../sizes.dart';
 
 class RecipeAppbarCatDetail extends StatelessWidget implements PreferredSizeWidget {
   const RecipeAppbarCatDetail({
@@ -27,7 +29,7 @@ class RecipeAppbarCatDetail extends StatelessWidget implements PreferredSizeWidg
         leadingWidth: 20,
         leading: RecipeIconButton(
           callback: () => context.pop(),
-          image: "assets/icons/back-arrow.svg",
+          image: "assets/svg/arrow.svg",
           width: 30,
           height: 14,
         ),
@@ -38,13 +40,13 @@ class RecipeAppbarCatDetail extends StatelessWidget implements PreferredSizeWidg
         ),
         actions: [
           RecipeAppBarAction(
-            image: "assets/icons/notification.svg",
+            image: "assets/svg/notification.svg",
             color: AppColors.pinkSub,
             callback: () {},
           ),
           SizedBox(width: 5),
           RecipeAppBarAction(
-            image: "assets/icons/search.svg",
+            image: "assets/svg/search.svg",
             color: AppColors.pinkSub,
             callback: () {},
           )

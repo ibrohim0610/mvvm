@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/categories/presentation/pages/categories_view_model.dart';
+import 'package:recipe_app/categories/presentation/manager/categories_view_model.dart';
+import 'package:recipe_app/categories/presentation/widgets/main_categories_item.dart';
 import 'package:recipe_app/core/core.dart';
-
-import '../widgets/category_item.dart';
+import 'package:recipe_app/categories/presentation/widgets/category_item.dart';
+import 'package:recipe_app/core/sizes.dart';
 
 class CategoriesView extends StatelessWidget {
-  const CategoriesView({
-    super.key,
-    required this.viewModel,
-  });
-
-  final CategoriesViewModel viewModel;
-
+  const CategoriesView({super.key, required this.viewModel});
+final CategoriesViewModel viewModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,49 +18,38 @@ class CategoriesView extends StatelessWidget {
     );
   }
 }
-
 class CategoriesPageBody extends StatelessWidget {
-  const CategoriesPageBody({
-    super.key,
-    required this.viewModel,
-  });
+  const CategoriesPageBody({super.key, required this.viewModel});
 
   final CategoriesViewModel viewModel;
-
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
-      onRefresh: viewModel.load,
-      child: ListenableBuilder(
+    return ListenableBuilder(
         listenable: viewModel,
-        builder: (context, _) {
-          return ListView(
-            padding: EdgeInsets.fromLTRB(38 * AppSizes.wRatio, 20, 38 * AppSizes.wRatio, 10),
-            children: [
-              if (viewModel.mainCategory != null)
-                CategoryItem(
-                  category: viewModel.mainCategory!,
-                  width: 356,
-                  height: 148,
-                  main: true,
-                ),
-              SizedBox(height: 16),
-              GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                ),
-                itemCount: viewModel.categories.length,
-                itemBuilder: (context, index) {
-                  return CategoryItem(category: viewModel.categories[index]);
-                },
-              )
-            ],
-          );
-        },
-      ),
-    );
+        builder: (context,  index){
+      return ListView(
+        children: [
+          if(viewModel.mainCategory != null)
+            CategoryItem(
+                image: viewModel.mainCategory!.image,
+              title: viewModel.mainCategory!.title,),
+          SizedBox(height: 16,),
+          GridView.builder(physics: NeverScrollableScrollPhysics(),
+            padding: EdgeInsets.zero,
+          shrinkWrap: true,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+          mainAxisSpacing: 10
+          ),
+            itemCount: viewModel.categories.length,
+            itemBuilder: (context,index){
+            return MainCategoriesItem(
+              image: viewModel.categories[index].image,
+              title: viewModel.categories[index].title,);
+            },
+          )
+        ],
+      );
+    });
   }
 }

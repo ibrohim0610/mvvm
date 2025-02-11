@@ -15,7 +15,7 @@ class RecipeReview extends StatelessWidget {
     return Row(
       children: [
         RecipeSvgImage(
-          image: "assets/icons/reviews.svg",
+          image: "assets/svg/reviews.svg",
           width: 10,
           height: 10,
           color: Colors.white,

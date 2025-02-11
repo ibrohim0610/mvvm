@@ -1,19 +1,18 @@
-import 'package:recipe_app/categories/data/models/category_model.dart';
-import 'package:recipe_app/core/core.dart';
+import 'dart:ffi';
 
-class CategoriesRepository {
+import 'package:recipe_app/categories/data/models/categories_model.dart';
+import 'package:recipe_app/core/client.dart';
+
+class CategoriesRepository{
+  
   CategoriesRepository({required this.client});
-
   final ApiClient client;
-  List<CategoryModel> _categories = [];
-
-  Future<List<CategoryModel>> fetchCategories({bool refresh = false}) async {
-    if (_categories.isNotEmpty && !refresh) {
-      return _categories;
-    }
-
-    List<dynamic> items = await client.fetchCategories();
-    _categories = items.map((item) => CategoryModel.fromJson(item)).toList();
-    return _categories;
+  List<CategoryModel> categories = [];
+  
+  Future<List<CategoryModel>> fetchCategories() async{
+    if (categories.isNotEmpty) return categories;
+    var rawCategories = await client.fetchCategories();
+    categories = rawCategories.map((c)=> CategoryModel.fromJson(c)).toList();
+    return categories;
   }
 }

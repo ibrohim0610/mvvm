@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/core.dart';
 
+import '../../sizes.dart';
+
 class RecipeAppbarDetail extends StatelessWidget implements PreferredSizeWidget {
   const RecipeAppbarDetail({
     super.key,
@@ -22,7 +24,7 @@ class RecipeAppbarDetail extends StatelessWidget implements PreferredSizeWidget 
         leadingWidth: 20,
         leading: RecipeIconButton(
           callback: context.pop,
-          image: "assets/icons/back-arrow.svg",
+          image: "assets/svg/arrow.svg",
           width: 30,
           height: 14,
         ),
@@ -33,7 +35,7 @@ class RecipeAppbarDetail extends StatelessWidget implements PreferredSizeWidget 
         ),
         actions: [
           RecipeAppBarAction(
-            image: "assets/icons/heart.svg",
+            image: "assets/svg/heart.svg",
             color: AppColors.pinkSub,
             iconWidth: 16,
             iconHeight: 16,
@@ -41,7 +43,7 @@ class RecipeAppbarDetail extends StatelessWidget implements PreferredSizeWidget 
           ),
           SizedBox(width: 5),
           RecipeAppBarAction(
-            image: "assets/icons/share.svg",
+            image: "assets/svg/share.svg",
             color: AppColors.pinkSub,
             iconWidth: 16,
             iconHeight: 16,

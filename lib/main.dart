@@ -71,22 +71,65 @@
 // }
 
 
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';
+// import 'package:recipe_app/core/client.dart';
+// import 'package:recipe_app/profile/data/repositories/profile_repository.dart';
+// import 'package:recipe_app/profile/presentation/pages/profile_view.dart';
+// import 'package:recipe_app/profile/presentation/pages/profile_view_model.dart';
+//
+// void main() => runApp(const RecipeApp());
+// class RecipeApp extends StatelessWidget {
+//   const RecipeApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: ProfileView(viewModel: ProfileViewModel(repo: ProfileRepository(client: ApiClient()))),
+//     );
+//   }
+// }
 import 'package:flutter/material.dart';
-import 'package:recipe_app/core/client.dart';
-import 'package:recipe_app/profile/data/repositories/profile_repository.dart';
-import 'package:recipe_app/profile/presentation/pages/profile_view.dart';
-import 'package:recipe_app/profile/presentation/pages/profile_view_model.dart';
+import 'package:recipe_app/core/core.dart';
+import 'package:recipe_app/onboarding/data/repositories/onboarding_repositories.dart';
+import 'package:recipe_app/onboarding/presentation/manager/onboarding_view_model.dart';
+import 'package:recipe_app/onboarding/presentation/pages/onboarding_view.dart';
+import 'package:recipe_app/profiles/presentation/pages/profile_page_view.dart';
+import 'package:recipe_app/profiles/data/repositories/my_profile_repository.dart';
+import 'package:recipe_app/profiles/presentation/pages/my_profile_view_model.dart';
 
-void main() => runApp(const RecipeApp());
-class RecipeApp extends StatelessWidget {
-  const RecipeApp({super.key});
+import 'categories/data/repositories/categories_repository.dart';
+import 'categories/presentation/manager/categories_view_model.dart';
+import 'categories/presentation/pages/categories_view.dart';
+import 'core/sizes.dart';
+
+void main() {
+  runApp(ProfileApp());
+}
+
+class ProfileApp extends StatelessWidget {
+  const ProfileApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ProfileView(viewModel: ProfileViewModel(repo: ProfileRepository(client: ApiClient()))),
+      theme: appTheme,
+      home: CategoriesView(viewModel:CategoriesViewModel(repo: CategoriesRepository(client: ApiClient()
+      )
+      )
+      )
     );
+  }
+}
+class MyProfilePage extends StatelessWidget {
+  const MyProfilePage({super.key, });
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return ProfilePageView();
   }
 }

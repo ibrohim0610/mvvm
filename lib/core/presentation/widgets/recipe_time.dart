@@ -18,7 +18,7 @@ class RecipeTime extends StatelessWidget {
     return Row(
       children: [
         RecipeSvgImage(
-          image: "assets/icons/clock.svg",
+          image: "assets/svg/clock.svg",
           width: 10,
           height: 10,
           color: iconColor,
