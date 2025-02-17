@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/profiles/presentation/widgets/recipe_eleveted_button.dart';
+import 'package:recipe_app/profiles/presentation/widgets/recipe_elevated_button.dart';
 
 class BottomButtonsRow extends StatelessWidget {
   const BottomButtonsRow({

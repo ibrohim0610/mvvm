@@ -10,7 +10,7 @@ class SecureStorage {
     await _storage.write(key: tokenKey, value: token);
   }
 
-  static Future<void> saveCredentials(String login, String password) async {
+  static Future<void> saveCredentials({required String login, required String password,}) async {
     await _storage.write(key: loginKey, value: login);
     await _storage.write(key: passwordKey, value: password);
   }
