@@ -53,8 +53,12 @@ class LoginView extends StatelessWidget {
                   GestureDetector(
                     child: RecipeElevatedButton(
                       text: 'Login',
-                      callBack: () {
+                      callBack: ()   async {
+                        if (viewModel.formKey.currentState!.validate()){
+                          if (await viewModel.login() && context.mounted){
                             context.go('/sign_up');
+                          }
+                        }
                       },
                       size: Size(207, 45),
                     ),
