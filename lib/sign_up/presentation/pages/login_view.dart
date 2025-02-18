@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipe_app/auth_recipe/presentation/manager/auth_view_model.dart';
 import 'package:recipe_app/core/core.dart';
 import 'package:recipe_app/profiles/presentation/widgets/recipe_elevated_button.dart';
 import 'package:recipe_app/sign_up/presentation/widgets/text_form_login_view.dart';
@@ -10,19 +9,18 @@ import 'package:recipe_app/sign_up/presentation/widgets/login_sign_view_text.dar
 import 'package:recipe_app/sign_up/presentation/widgets/login_sign_view_text_form_field.dart';
 import 'package:recipe_app/sign_up/presentation/widgets/view_app_bar.dart';
 
+import '../manager/sign_view_model.dart';
+
 class LoginView extends StatelessWidget {
   LoginView({super.key, required this.viewModel});
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
 
-  final AuthViewModel viewModel;
+
+  final SignViewModel viewModel;
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
       listenable: viewModel,
-
       builder:(context , child)=> Scaffold(
         backgroundColor: AppColors.beigeColor,
         appBar: ViewAppBar(title: 'Login'),
@@ -30,7 +28,7 @@ class LoginView extends StatelessWidget {
           padding: EdgeInsets.only(top: 150, left: 30, right: 30),
           children: [
             Form(
-              key: _formKey,
+              key: viewModel.formKey,
               child: Column(
                 spacing: 10,
                 children: [
@@ -43,28 +41,30 @@ class LoginView extends StatelessWidget {
                       }
                       return null;
                     },
-                    controller: emailController,
+                    controller: viewModel.loginController,
                   ),
                   LoginSignViewPasswordFormField(
                     title: 'Password',
-                    controller: passwordController,
+                    controller: viewModel.passwordController,
                   ),
                   SizedBox(
                     height: 90,
                   ),
-                  RecipeElevatedButton(
-                    text: 'Login',
-                    callBack: () {},
-                    size: Size(207, 45),
+                  GestureDetector(
+                    child: RecipeElevatedButton(
+                      text: 'Login',
+                      callBack: () {
+                            context.go('/sign_up');
+                      },
+                      size: Size(207, 45),
+                    ),
                   ),
                   SizedBox(
                     height: 27,
                   ),
                   RecipeElevatedButton(
                     text: "Sign up",
-                    callBack: () {
-                      context.go('/sign_up');
-                    },
+                    callBack: () {},
                     size: Size(207, 45),
                   ),
                   SizedBox(

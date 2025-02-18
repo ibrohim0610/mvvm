@@ -1,37 +1,32 @@
 import 'package:flutter/material.dart';
-import '../../../auth_recipe/data/repositories/auth_repositories.dart';
 
+import '../../data/repositories/sign_repository.dart';
 
-class AuthViewModel extends ChangeNotifier {
-  AuthViewModel({required AuthRepository authRepository}) : _authRepository = authRepository;
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final TextEditingController loginController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+class SignViewModel extends ChangeNotifier {
+  SignViewModel({required AuthRepository repo}) : _repo = repo;
+  final AuthRepository _repo;
 
-  final AuthRepository _authRepository;
-  bool _isAuthenticated = false;
+  String? _errorMessage;
 
-  bool get isAuthenticated => _isAuthenticated;
+  bool get hasError => _errorMessage != null;
 
-  Future<bool> submitForm() async {
-    if (formKey.currentState!.validate()) {
-      String login = loginController.text;
-      String password = passwordController.text;
+  String? get errorMessage => _errorMessage;
 
-      _isAuthenticated = await _authRepository.login(login, password);
+  final formKey = GlobalKey<FormState>();
+  final loginController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  Future<bool> login() async {
+    try {
+      await _repo.login(loginController.text, passwordController.text);
+    } on Exception catch (e) {
+      _errorMessage = e.toString();
       notifyListeners();
+      return false;
     }
-    return _isAuthenticated;
-  }
 
-  Future<void> obtainToken(String login, String password) async {
-    _isAuthenticated = await _authRepository.login(login, password);
+    _errorMessage = null;
     notifyListeners();
-  }
-
-  Future<void> logout() async {
-    await _authRepository.logout();
-    _isAuthenticated = false;
-    notifyListeners();
+    return true;
   }
 }
