@@ -35,12 +35,7 @@ class LoginView extends StatelessWidget {
                   LoginSignViewTextFormField(
                     title: "Login",
                     hintText: "example@gmail.com",
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please enter your email";
-                      }
-                      return null;
-                    },
+                    validator: (value) => null,
                     controller: viewModel.loginController,
                   ),
                   LoginSignViewPasswordFormField(
@@ -53,10 +48,12 @@ class LoginView extends StatelessWidget {
                   GestureDetector(
                     child: RecipeElevatedButton(
                       text: 'Login',
-                      callBack: ()   async {
-                        if (viewModel.formKey.currentState!.validate()){
-                          if (await viewModel.login() && context.mounted){
-                            context.go('/sign_up');
+                      callBack: () async {
+                        if (viewModel.formKey.currentState!.validate()) {
+                          if (await viewModel.login ()
+                              && context.mounted) {
+                            context.go('/sign_up'
+                            );
                           }
                         }
                       },
@@ -68,7 +65,8 @@ class LoginView extends StatelessWidget {
                   ),
                   RecipeElevatedButton(
                     text: "Sign up",
-                    callBack: () {},
+                    callBack: () {
+                    },
                     size: Size(207, 45),
                   ),
                   SizedBox(
