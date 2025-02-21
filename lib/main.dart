@@ -1,28 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:recipe_app/core/client.dart';
-import 'package:recipe_app/sign_up/data/repositories/sign_repository.dart';
-import 'package:recipe_app/sign_up/presentation/manager/sign_view_model.dart';
-import 'package:recipe_app/sign_up/presentation/pages/login_view.dart';
-import 'package:recipe_app/sign_up/presentation/pages/sign_up_view.dart';
+import 'package:recipe_app/core/dependencies.dart' show providers;
+import 'core/routing/router.dart';
 
 
-GoRouter router =GoRouter
-  (
-  initialLocation: '/login_go',
-    routes: [
-    GoRoute(path: '/login_go',
-    builder: (context , state)=> LoginView(
-      viewModel: SignViewModel(repo: AuthRepository(client: ApiClient()))
-      ),
-    ),
-      GoRoute(path: '/sign_up',
-      builder: (context, state)=> SignUpView()
-      ),
-]
-);
+final navigatorKey = GlobalKey<NavigatorState>();
+
+
 void main(){
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 
 
@@ -33,9 +19,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerConfig: router,
+    return MultiProvider(
+      providers: providers,
+      builder:(context, child)=> MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerConfig: router,
+      ),
     );
   }
 }

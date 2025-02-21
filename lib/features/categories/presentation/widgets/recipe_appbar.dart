@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/core.dart';
+import 'package:recipe_app/features/categories/presentation/widgets/recipe_appbar_action.dart';
+import 'package:recipe_app/features/categories/presentation/widgets/recipe_icon_button.dart';
 
-import '../../../features/categories/presentation/widgets/recipe_appbar_action.dart';
-import '../../../features/categories/presentation/widgets/recipe_icon_button.dart';
-import '../../sizes.dart';
 
-class RecipeAppbarDetail extends StatelessWidget implements PreferredSizeWidget {
-  const RecipeAppbarDetail({
+
+class RecipeAppbar extends StatelessWidget implements PreferredSizeWidget {
+  const RecipeAppbar({
     super.key,
     required this.title,
   });
@@ -20,10 +20,11 @@ class RecipeAppbarDetail extends StatelessWidget implements PreferredSizeWidget 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppSizes.padding38),
+      padding: EdgeInsets.symmetric(horizontal: 38),
       child: AppBar(
+        backgroundColor: AppColors.beigeColor,
         toolbarHeight: 61,
-        leadingWidth: 20,
+        leadingWidth: 35,
         leading: RecipeIconButton(
           callback: context.pop,
           image: "assets/svg/arrow.svg",
@@ -37,18 +38,14 @@ class RecipeAppbarDetail extends StatelessWidget implements PreferredSizeWidget 
         ),
         actions: [
           RecipeAppBarAction(
-            image: "assets/svg/heart.svg",
+            image: "assets/svg/notification.svg",
             color: AppColors.pinkSub,
-            iconWidth: 16,
-            iconHeight: 16,
             callback: () {},
           ),
           SizedBox(width: 5),
           RecipeAppBarAction(
-            image: "assets/svg/share.svg",
+            image: "assets/svg/search.svg",
             color: AppColors.pinkSub,
-            iconWidth: 16,
-            iconHeight: 16,
             callback: () {},
           )
         ],

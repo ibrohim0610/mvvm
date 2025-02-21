@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/core.dart';
 
-import '../../../categories/data/models/categories_model.dart';
+import '../../../features/categories/data/models/categories_model.dart';
+import '../../../features/categories/presentation/widgets/recipe_appbar_action.dart';
+import '../../../features/categories/presentation/widgets/recipe_icon_button.dart';
 import '../../sizes.dart';
 
 class RecipeAppbarCatDetail extends StatelessWidget implements PreferredSizeWidget {

@@ -1,9 +1,5 @@
 export 'client.dart';
-export '../categories/presentation/widgets/recipe_appbar.dart';
-export '../categories/presentation/widgets/recipe_appbar_action.dart';
 export 'presentation/widgets/recipe_appbar_cat_detail.dart';
-export '../categories/presentation/widgets/recipe_bottom_navigationbar.dart';
-export '../categories/presentation/widgets/recipe_icon_button.dart';
 export 'presentation/widgets/recipe_svg_image.dart';
 export 'presentation/widgets/recipe_rating.dart';
 export 'presentation/widgets/recipe_time.dart';
