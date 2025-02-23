@@ -4,9 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:recipe_app/features/sign_up/presentation/widgets/login_sign_view_password_form_field.dart';
 import 'package:recipe_app/features/sign_up/presentation/widgets/login_sign_view_text_form_field.dart';
 import 'package:recipe_app/features/sign_up/presentation/widgets/view_app_bar.dart';
-
 import '../../../../core/utils/colors.dart';
-import '../../../profiles/presentation/widgets/recipe_elevated_button.dart';
 import '../manager/sign_up_view_model.dart';
 import '../widgets/Recipe_date_of_birth_form_field.dart';
 import '../widgets/login_sign_view_text.dart';
@@ -94,6 +92,7 @@ class SignUpView extends StatelessWidget {
                       width: 194,
                         height: 45,
                         child: ElevatedButton(onPressed: (){
+                          context.read<SignUpViewModel>().formKey.currentState!.validate();
                           showDialog(context: context, builder: (context)=>
                               SimpleDialog(
                                 children: [
@@ -153,7 +152,6 @@ class SignUpView extends StatelessWidget {
                                 ],
                               ),
                           );
-
                         },
                             style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.redPinkMain
@@ -170,7 +168,6 @@ class SignUpView extends StatelessWidget {
                     ),
                     LoginSignViewText(
                         text: 'Already have an account?  Log In'),
-
                     SizedBox(height: 20,)
                   ],
                 ),

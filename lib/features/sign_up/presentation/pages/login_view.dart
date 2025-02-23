@@ -4,7 +4,7 @@ import 'package:recipe_app/core/core.dart';
 import 'package:recipe_app/features/sign_up/data/repositories/sign_repository.dart';
 import 'package:recipe_app/features/sign_up/presentation/widgets/login_view_form.dart';
 
-import '../manager/sign_view_model.dart';
+import '../manager/login_view_model.dart';
 
 import '../widgets/view_app_bar.dart';
 
@@ -14,9 +14,9 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => SignViewModel(repo: context.read<AuthRepository>()),
+      create: (context) => LoginViewModel(repo: context.read<AuthRepository>()),
       builder: (context, child) {
-        final viewModel = context.watch<SignViewModel>();
+        final viewModel = context.watch<LoginViewModel>();
         return Scaffold(
           backgroundColor: AppColors.beigeColor,
           appBar: ViewAppBar(title: 'Login'),

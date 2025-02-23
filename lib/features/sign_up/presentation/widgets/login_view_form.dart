@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../profiles/presentation/widgets/recipe_elevated_button.dart';
-import '../manager/sign_view_model.dart';
+import '../manager/login_view_model.dart';
 import 'login_sign_view_password_form_field.dart';
 import 'login_sign_view_text.dart';
 import 'login_sign_view_text_form_field.dart';
@@ -22,7 +22,7 @@ class LoginViewForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.read<SignViewModel>();
+    final viewModel = context.read<LoginViewModel>();
     return Form(
       key: viewModel.formKey,
       child: Column(

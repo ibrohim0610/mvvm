@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../data/repositories/sign_repository.dart';
 
-class SignViewModel extends ChangeNotifier {
-  SignViewModel({required AuthRepository repo}) : _repo = repo;
+class LoginViewModel extends ChangeNotifier {
+  LoginViewModel({required AuthRepository repo}) : _repo = repo;
   final AuthRepository _repo;
 
   String? _errorMessage;
