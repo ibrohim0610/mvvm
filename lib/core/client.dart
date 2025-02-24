@@ -1,9 +1,11 @@
 
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
-  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://10.10.1.238:8888/api/v1", validateStatus: (status) => true));}
+  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http:// 192.168.87.146:8888/api/v1", validateStatus: (status) => true));}
 late final Dio dio;
   Future<Map<String, dynamic>> fetchMyProfile() async {
     var response = await dio.get("/auth/details/1");
@@ -36,13 +38,16 @@ late final Dio dio;
     List<dynamic> data = response.data;
     return data;
   }
+  Future<List<dynamic>>fetchRecipes(int categoryId)async{
+    var response = await dio.get('/recipes/list?Category=$categoryId');
+    List<dynamic> data = response.data;
+    return data;
+  }
 
   Future<String> login(String login, String password) async {
-    print("client login");
     var response = await dio.post('/auth/login',
         data: {'login': login, 'password': password}
     );
-    print(response.statusCode.toString());
 
     if (response.statusCode == 200) {
       Map<String, String> data = Map<String, String>.from(response.data);
@@ -63,6 +68,19 @@ late final Dio dio;
     } else {
       return false;
     }
+  }
+  Future uploadProfilePhoto(File file) async {
+    FormData formData = FormData.fromMap(
+        {'file':  await MultipartFile.fromFile(file.path, filename: file.path.split('/').last)},
+    );
+
+    var response  = await dio.post(
+      '/auth/upload',
+      data: formData,
+      options: Options(
+        headers: {"Content - Type": 'multipart/form-data'}
+      )
+    );
   }
 
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_app/core/core.dart';
 import 'package:recipe_app/core/dependencies.dart' show providers;
 import 'core/routing/router.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       providers: providers,
       builder:(context, child)=> MaterialApp.router(
         debugShowCheckedModeBanner: false,
+        // theme: appTheme,
         routerConfig: router,
       ),
     );

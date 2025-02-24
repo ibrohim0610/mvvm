@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/routing/routes.dart';
-import '../../../profiles/presentation/widgets/recipe_elevated_button.dart';
+import '../../../../core/presentation/widgets/recipe_elevated_button.dart';
 import '../manager/login_view_model.dart';
 import 'login_sign_view_password_form_field.dart';
 import 'login_sign_view_text.dart';
@@ -44,14 +44,9 @@ class LoginViewForm extends StatelessWidget {
           GestureDetector(
             child: RecipeElevatedButton(
               text: 'Login',
-              callBack: () async{
-                print("object");
+              callback: () async{
                 if (viewModel.formKey.currentState!.validate()) {
-                  print("nimadir");
-                  final oz = await viewModel.login();
-                  print(oz);
                   if (await viewModel.login() && context.mounted) {
-                    print("qandaydir");
                     context.go(Routes.categories);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
@@ -69,7 +64,7 @@ class LoginViewForm extends StatelessWidget {
           ),
           RecipeElevatedButton(
             text: "Sign up",
-            callBack: () {
+            callback: () {
               context.go(Routes.signup);
             },
             size: Size(207, 45),

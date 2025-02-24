@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_app/core/routing/routes.dart';
 import 'package:recipe_app/features/sign_up/presentation/widgets/login_sign_view_password_form_field.dart';
 import 'package:recipe_app/features/sign_up/presentation/widgets/login_sign_view_text_form_field.dart';
 import 'package:recipe_app/features/sign_up/presentation/widgets/view_app_bar.dart';
@@ -97,7 +99,7 @@ class SignUpView extends StatelessWidget {
                               SimpleDialog(
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.only(top: 23,right: 36,left: 36,bottom: 23),
+                                    padding: EdgeInsets.only(top: 23,right: 36,left: 36,bottom: 20),
                                     width: 250,
                                     height: 286,
                                     child: Column(
@@ -145,7 +147,27 @@ class SignUpView extends StatelessWidget {
                                               color: Colors.black,
                                               fontWeight: FontWeight.w400,
                                               fontSize: 13
-                                          ),)
+                                          ),
+                                        ),
+                                        SizedBox(height: 5,),
+                                        SizedBox(
+                                          width: 100,
+                                          height: 30,
+                                          child: ElevatedButton(onPressed: (){
+                                            context.go(Routes.completeProfile);
+                                          },
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor: AppColors.redPinkMain
+                                              ),
+                                              child: Text("Ok",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                          )
+                                          ),
+                                        )
                                       ],
                                     ),
                                   ),

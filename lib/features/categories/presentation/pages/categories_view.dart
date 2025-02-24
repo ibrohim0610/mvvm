@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:recipe_app/core/core.dart';
+import '../../../../core/routing/routes.dart';
 import '../manager/categories_view_model.dart';
 import '../widgets/category_item.dart';
 import '../widgets/main_categories_item.dart';
@@ -11,6 +14,7 @@ final CategoriesViewModel viewModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.beigeColor,
       extendBody: true,
       appBar: RecipeAppbar(title: "Categories"),
       body: CategoriesPageBody(viewModel: viewModel),
@@ -30,9 +34,14 @@ class CategoriesPageBody extends StatelessWidget {
       return ListView(
         children: [
           if(viewModel.mainCategory != null)
-            CategoryItem(
-                image: viewModel.mainCategory!.image,
-              title: viewModel.mainCategory!.title,),
+            GestureDetector(
+              onTap: () {
+                context.push(Routes.categoriesDetail, extra: viewModel.mainCategory);
+              },
+              child: CategoryItem(
+                  image: viewModel.mainCategory!.image,
+                title: viewModel.mainCategory!.title,),
+            ),
           SizedBox(height: 16,),
           GridView.builder(physics: NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,

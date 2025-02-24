@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/features/profiles/presentation/widgets/recipe_elevated_button.dart';
+import 'package:recipe_app/core/presentation/widgets/recipe_elevated_button.dart';
 
 
 class BottomButtonsRow extends StatelessWidget {
@@ -12,8 +12,8 @@ class BottomButtonsRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        RecipeElevatedButton(text: "Edit Profile", callBack: () {}),
-        RecipeElevatedButton(text: "Share Profile", callBack: () {}),
+        RecipeElevatedButton(text: "Edit Profile", callback: () {}),
+        RecipeElevatedButton(text: "Share Profile", callback: () {}),
       ],
     );
   }
