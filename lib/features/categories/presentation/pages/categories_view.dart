@@ -34,14 +34,10 @@ class CategoriesPageBody extends StatelessWidget {
       return ListView(
         children: [
           if(viewModel.mainCategory != null)
-            GestureDetector(
-              onTap: () {
-                context.push(Routes.categoriesDetail, extra: viewModel.mainCategory);
-              },
-              child: CategoryItem(
-                  image: viewModel.mainCategory!.image,
-                title: viewModel.mainCategory!.title,),
-            ),
+            CategoryItem(
+              callback: ()=>context.go(Routes.categoriesDetail),
+                image: viewModel.mainCategory!.image,
+              title: viewModel.mainCategory!.title,),
           SizedBox(height: 16,),
           GridView.builder(physics: NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
@@ -53,6 +49,7 @@ class CategoriesPageBody extends StatelessWidget {
             itemCount: viewModel.categories.length,
             itemBuilder: (context,index){
             return MainCategoriesItem(
+              callback: ()=>context.go(Routes.categoriesDetail,extra:viewModel.categories[index]),
               image: viewModel.categories[index].image,
               title: viewModel.categories[index].title,);
             },

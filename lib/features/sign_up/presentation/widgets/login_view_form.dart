@@ -38,26 +38,30 @@ class LoginViewForm extends StatelessWidget {
             title: 'Password',
             controller: viewModel.passwordController, validator: (value) => null,
           ),
+          if (viewModel.hasError)
+            Text(
+              viewModel.errorMessage!,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.error,
+              ),
+            ),
           SizedBox(
             height: 90,
           ),
-          GestureDetector(
-            child: RecipeElevatedButton(
-              text: 'Login',
-              callback: () async{
-                if (viewModel.formKey.currentState!.validate()) {
-                  if (await viewModel.login() && context.mounted) {
-                    context.go(Routes.categories);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text("Banzaaay!"),
-                      ),
-                    );
-                  }
-                }
-              },
-              size: Size(207, 45),
-            ),
+          RecipeElevatedButton(
+            text: 'Login',
+            callback: () async{
+              if (viewModel.formKey.currentState!.validate()) {
+                if (await viewModel.login() && context.mounted) {
+                  context.go(Routes.categories);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Banzaaay!"),
+                    ),
+                  );
+                }}
+            },
+            size: Size(207, 45),
           ),
           SizedBox(
             height: 27,

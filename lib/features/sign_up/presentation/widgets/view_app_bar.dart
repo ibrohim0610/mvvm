@@ -25,6 +25,24 @@ class ViewAppBar extends StatelessWidget implements PreferredSizeWidget{
           ),
         ),
       ),
+      actions: [
+        TextButton(onPressed: (){},
+          child: Text('uz',
+            style: TextStyle(color: Colors.white,
+                fontSize: 15,
+                fontWeight: FontWeight.w600
+            ),
+          ),
+        ),
+        TextButton(onPressed: (){},
+          child: Text('en',
+            style: TextStyle(color: Colors.white,
+                fontSize: 15,
+                fontWeight: FontWeight.w600
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/core.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_appbar_action.dart';
+import 'package:recipe_app/features/categories/presentation/widgets/recipe_appbar_list_view_horizontal.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_icon_button.dart';
 
-
+import '../../../../core/routing/routes.dart';
 
 class RecipeAppbar extends StatelessWidget implements PreferredSizeWidget {
   const RecipeAppbar({
@@ -26,7 +27,9 @@ class RecipeAppbar extends StatelessWidget implements PreferredSizeWidget {
         toolbarHeight: 61,
         leadingWidth: 35,
         leading: RecipeIconButton(
-          callback: context.pop,
+          callback: () {
+            context.go(Routes.login);
+          },
           image: "assets/svg/arrow.svg",
           width: 30,
           height: 14,
@@ -47,7 +50,7 @@ class RecipeAppbar extends StatelessWidget implements PreferredSizeWidget {
             image: "assets/svg/search.svg",
             color: AppColors.pinkSub,
             callback: () {},
-          )
+          ),
         ],
       ),
     );

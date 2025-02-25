@@ -5,6 +5,7 @@ import 'package:recipe_app/core/core.dart';
 import '../../../features/categories/data/models/categories_model.dart';
 import '../../../features/categories/presentation/widgets/recipe_appbar_action.dart';
 import '../../../features/categories/presentation/widgets/recipe_icon_button.dart';
+import '../../routing/routes.dart';
 import '../../sizes.dart';
 
 class RecipeAppbarCatDetail extends StatelessWidget implements PreferredSizeWidget {
@@ -25,12 +26,13 @@ class RecipeAppbarCatDetail extends StatelessWidget implements PreferredSizeWidg
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppSizes.padding38, vertical: 0),
+      padding: EdgeInsets.symmetric(horizontal: 38, vertical: 0),
       child: AppBar(
+        backgroundColor: AppColors.beigeColor,
         toolbarHeight: 132,
         leadingWidth: 20,
         leading: RecipeIconButton(
-          callback: () => context.pop(),
+          callback: () => context.go(Routes.categories),
           image: "assets/svg/arrow.svg",
           width: 30,
           height: 14,

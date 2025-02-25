@@ -24,4 +24,5 @@ class CategoriesDetailModel {
         image: json['photo'],
         time: json['timeRequired']);
   }
+
 }
