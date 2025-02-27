@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:recipe_app/core/core.dart';
+import 'package:recipe_app/core/l10n/localization.dart';
+import 'package:recipe_app/features/sign_up/presentation/manager/sign_up_view_model.dart';
+
+import '../../../../core/l10n/app_localizations.dart';
 
 class ViewAppBar extends StatelessWidget implements PreferredSizeWidget{
   const ViewAppBar({
@@ -17,7 +22,7 @@ class ViewAppBar extends StatelessWidget implements PreferredSizeWidget{
       backgroundColor: AppColors.beigeColor,
       title: Center(
         child: Text(
-        title,
+          MyLocalizations.of(context)!.signUp,
           style: TextStyle(
             color: AppColors.redPinkMain,
             fontWeight: FontWeight.w600,
@@ -26,7 +31,11 @@ class ViewAppBar extends StatelessWidget implements PreferredSizeWidget{
         ),
       ),
       actions: [
-        TextButton(onPressed: (){},
+        TextButton(onPressed: (){
+          context.read<LocalizationViewModel>().currentLocale = Locale(
+            "uz",
+          );
+        },
           child: Text('uz',
             style: TextStyle(color: Colors.white,
                 fontSize: 15,
@@ -34,7 +43,9 @@ class ViewAppBar extends StatelessWidget implements PreferredSizeWidget{
             ),
           ),
         ),
-        TextButton(onPressed: (){},
+        TextButton(onPressed: (){
+          context.read<LocalizationViewModel>().currentLocale=Locale("en");
+        },
           child: Text('en',
             style: TextStyle(color: Colors.white,
                 fontSize: 15,

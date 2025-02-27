@@ -34,4 +34,15 @@ class SignUpViewModel extends ChangeNotifier {
     );
     return result;
   }
+  Locale _currentLocale = Locale("en");
+
+  Locale get currentLocale => _currentLocale;
+
+  set currentLocale(Locale locale) {
+
+    if(_currentLocale != locale) {
+      _currentLocale = locale;
+      notifyListeners();
+    }
+  }
 }

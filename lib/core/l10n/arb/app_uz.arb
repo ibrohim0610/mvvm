@@ -1,0 +1,19 @@
+{
+"signUp": "Ro'yxatdan o'tish",
+"fullName": "To'liq Ism",
+"lastName": "Familiya",
+"userName": "Foydalanuvchi Nomi",
+"email": "Elektron Pochta",
+"mobileNumber": "Mobil Raqam",
+"dateOfBirth": "Tug'ulgan Kuni",
+"password": "Parol",
+"confirmPassword": "Parolni Tasdiqlang",
+"signUpButton": "Ro'yxatdan o'tish",
+  "by": "Davom etish orqali siz rozilik bildirasiz",
+  "terms": "Foydalanish shartlari va Maxfiylik siyosati.",
+  "account": "Hisobingiz bormi? Tizimga kirish",
+  "login": "Kirish",
+  "forgot": "Parolingzni utudingizmi",
+  "or": "Yoki ro'xatdan o'ting",
+  "an": "Hisobingiz yo'qmi? Ro'yxatdan o'ting"
+}

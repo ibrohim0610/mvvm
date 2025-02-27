@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/core/core.dart';
 import 'package:recipe_app/core/dependencies.dart' show providers;
+import 'package:recipe_app/core/l10n/localization.dart';
+import 'core/l10n/app_localizations.dart';
 import 'core/routing/router.dart';
+import 'features/sign_up/presentation/manager/sign_up_view_model.dart';
 
 
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -26,6 +30,17 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         // theme: appTheme,
         routerConfig: router,
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          MyLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale("uz"),
+          Locale("en"),
+        ],
+        locale: context.watch<LocalizationViewModel>().currentLocale,
       ),
     );
   }

@@ -6,6 +6,7 @@ import 'package:recipe_app/core/routing/routes.dart';
 import 'package:recipe_app/features/sign_up/presentation/widgets/login_sign_view_password_form_field.dart';
 import 'package:recipe_app/features/sign_up/presentation/widgets/login_sign_view_text_form_field.dart';
 import 'package:recipe_app/features/sign_up/presentation/widgets/view_app_bar.dart';
+import '../../../../core/l10n/app_localizations.dart';
 import '../../../../core/utils/colors.dart';
 import '../manager/sign_up_view_model.dart';
 import '../widgets/Recipe_date_of_birth_form_field.dart';
@@ -22,66 +23,65 @@ class SignUpView extends StatelessWidget {
         authRepo: context.read(),
       ),
       builder: (context, child) {
-        final vm = context.read<SignUpViewModel>();
         return Scaffold(
           backgroundColor: AppColors.beigeColor,
-          appBar: ViewAppBar(title: 'Sign Up'),
+          appBar: ViewAppBar(title: MyLocalizations.of(context)!.signUp),
           body: ListView(
             children: [
               SizedBox(height: 20),
               Form(
-                key: vm.formKey,
+                key:context.read<SignUpViewModel>().formKey,
                 child: Column(
                   spacing: 10,
                   children: [
                     LoginSignViewTextFormField(
-                      title: "First Name",
+                      title: MyLocalizations.of(context)!.fullName,
                       hintText: "Ibrohim",
                       validator: (value) => null,
-                      controller: vm.firstNameController,
+                      controller:context.read<SignUpViewModel>().firstNameController,
                     ),
                     LoginSignViewTextFormField(
-                      title: "Last Name",
+                      title: MyLocalizations.of(context)!.lastName,
                       hintText: "Qo'ldoshev",
                       validator: (value) => null,
-                      controller: vm.lastNameController,
+                      controller: context.read<SignUpViewModel>().lastNameController,
                     ),
                     LoginSignViewTextFormField(
-                      title: "Username",
+                      title: MyLocalizations.of(context)!.userName,
                       hintText: "chef-ibrohim",
                       validator: (value) => null,
-                      controller: vm.usernameController,
+                      controller:context.read<SignUpViewModel>().usernameController,
                     ),
                     LoginSignViewTextFormField(
-                      title: "Email",
+                      title: MyLocalizations.of(context)!.email,
                       hintText: "example@example.com",
                       validator: (value) => null,
-                      controller: vm.emailController,
+                      controller:context.read<SignUpViewModel>().emailController,
                     ),
                     LoginSignViewTextFormField(
-                      title: "Phone Number",
+                      title: MyLocalizations.of(context)!.mobileNumber,
                       hintText: "+99899 999 99 99",
                       validator: (value) => null,
-                      controller: vm.numberController,
+                      controller: context.read<SignUpViewModel>().numberController,
                     ),
-                    RecipeDateOfBirthFormField(title: 'Date of Birth'),
+                    RecipeDateOfBirthFormField(title: MyLocalizations.of(context)!.dateOfBirth),
                     LoginSignViewPasswordFormField(
-                      controller: vm.passwordController,
-                      title: "Password",
+                      controller: context.read<SignUpViewModel>().passwordController,
+                      title: MyLocalizations.of(context)!.password,
                       validator: (value) => null,
                     ),
                     LoginSignViewPasswordFormField(
-                      controller: vm.confirmPasswordController,
-                      title: "Confirm Password",
+                      controller:context.read<SignUpViewModel>().confirmPasswordController,
+                      title: MyLocalizations.of(context)!.confirmPassword,
                       validator: (value) {
-                        if (vm.passwordController.text != vm.confirmPasswordController.text) {
+                        if (context.read<SignUpViewModel>().passwordController.text != context.read<SignUpViewModel>().confirmPasswordController.text) {
                           return "Passwords do not match!";
                         }
                         return null;
                       },
                     ),
                     SizedBox(height: 20,),
-                    Text('By continuing, you agree to ',
+                    Text(MyLocalizations.of(context)!.by,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 14,
@@ -89,7 +89,7 @@ class SignUpView extends StatelessWidget {
                       ),
                     ),
                     TextFormLoginView(
-                        title: 'Terms of Use and Privacy Policy.'),
+                        title: MyLocalizations.of(context)!.terms,),
                     SizedBox(
                       width: 194,
                         height: 45,
@@ -178,7 +178,7 @@ class SignUpView extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.redPinkMain
                         ),
-                            child: Text('Sign Up',
+                            child: Text(MyLocalizations.of(context)!.signUpButton,
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
@@ -189,7 +189,7 @@ class SignUpView extends StatelessWidget {
                         ),
                     ),
                     LoginSignViewText(
-                        text: 'Already have an account?  Log In'),
+                        text: MyLocalizations.of(context)!.account,),
                     SizedBox(height: 20,)
                   ],
                 ),

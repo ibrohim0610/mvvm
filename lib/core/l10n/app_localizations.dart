@@ -92,21 +92,110 @@ abstract class MyLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('ru'),
     Locale('uz')
   ];
 
-  /// No description provided for @hello.
+  /// No description provided for @signUp.
   ///
-  /// In uz, this message translates to:
-  /// **'Salom'**
-  String get hello;
+  /// In en, this message translates to:
+  /// **'Sign Up'**
+  String get signUp;
 
-  /// Ism berilsa trenddagi ritsept deb chiqarib beradi
+  /// No description provided for @fullName.
   ///
-  /// In uz, this message translates to:
-  /// **'Trenddagi Ritsept {nimadur}'**
-  String trendingRecipe(String nimadur);
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
+  /// No description provided for @lastName.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Name'**
+  String get lastName;
+
+  /// No description provided for @userName.
+  ///
+  /// In en, this message translates to:
+  /// **'User Name'**
+  String get userName;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @mobileNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile Number'**
+  String get mobileNumber;
+
+  /// No description provided for @dateOfBirth.
+  ///
+  /// In en, this message translates to:
+  /// **'Date Of Birth'**
+  String get dateOfBirth;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPassword;
+
+  /// No description provided for @signUpButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Up'**
+  String get signUpButton;
+
+  /// No description provided for @by.
+  ///
+  /// In en, this message translates to:
+  /// **'By continuing,you agree to'**
+  String get by;
+
+  /// No description provided for @terms.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of use and Privacy Policy.'**
+  String get terms;
+
+  /// No description provided for @account.
+  ///
+  /// In en, this message translates to:
+  /// **'A ready have an account? Log in'**
+  String get account;
+
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login;
+
+  /// No description provided for @forgot.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password'**
+  String get forgot;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'or sign up with'**
+  String get or;
+
+  /// No description provided for @an.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account?Sign Up '**
+  String get an;
 }
 
 class _MyLocalizationsDelegate extends LocalizationsDelegate<MyLocalizations> {
@@ -118,7 +207,7 @@ class _MyLocalizationsDelegate extends LocalizationsDelegate<MyLocalizations> {
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'ru', 'uz'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'uz'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_MyLocalizationsDelegate old) => false;
@@ -134,9 +223,9 @@ MyLocalizations lookupMyLocalizations(Locale locale) {
   }
 
   throw FlutterError(
-      'MyLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-          'an issue with the localizations generation tool. Please file an issue '
-          'on GitHub with a reproducible sample app and the gen-l10n configuration '
-          'that was used.'
+    'MyLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.'
   );
 }

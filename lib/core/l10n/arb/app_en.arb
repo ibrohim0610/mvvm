@@ -1,0 +1,20 @@
+{
+  "signUp": "Sign Up",
+  "fullName": "Full Name",
+  "lastName": "Last Name",
+  "userName": "User Name",
+  "email": "Email",
+  "mobileNumber": "Mobile Number",
+  "dateOfBirth": "Date Of Birth",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "signUpButton": "Sign Up",
+  "by": "By continuing,you agree to",
+  "terms": "Terms of use and Privacy Policy.",
+  "account": "A ready have an account? Log in",
+  "login": "Login",
+  "forgot": "Forgot Password",
+  "or": "or sign up with",
+  "an": "Don't have an account?Sign Up "
+
+}

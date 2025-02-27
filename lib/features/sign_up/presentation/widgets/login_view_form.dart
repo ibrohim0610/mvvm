@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_app/core/l10n/app_localizations.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/presentation/widgets/recipe_elevated_button.dart';
 import '../manager/login_view_model.dart';
@@ -29,13 +30,13 @@ class LoginViewForm extends StatelessWidget {
         spacing: 10,
         children: [
           LoginSignViewTextFormField(
-            title: "Login",
+            title: MyLocalizations.of(context)!.login,
             hintText: "example@gmail.com",
             validator: (value) => null,
             controller: viewModel.loginController,
           ),
           LoginSignViewPasswordFormField(
-            title: 'Password',
+            title: MyLocalizations.of(context)!.password,
             controller: viewModel.passwordController, validator: (value) => null,
           ),
           if (viewModel.hasError)
@@ -49,7 +50,7 @@ class LoginViewForm extends StatelessWidget {
             height: 90,
           ),
           RecipeElevatedButton(
-            text: 'Login',
+            text: MyLocalizations.of(context)!.login,
             callback: () async{
               if (viewModel.formKey.currentState!.validate()) {
                 if (await viewModel.login() && context.mounted) {
@@ -67,7 +68,7 @@ class LoginViewForm extends StatelessWidget {
             height: 27,
           ),
           RecipeElevatedButton(
-            text: "Sign up",
+            text: MyLocalizations.of(context)!.signUpButton,
             callback: () {
               context.go(Routes.signup);
             },
@@ -76,12 +77,12 @@ class LoginViewForm extends StatelessWidget {
           SizedBox(
             height: 50,
           ),
-          TextFormLoginView(title: 'Forgot Password?',),
+          TextFormLoginView(title: MyLocalizations.of(context)!.forgot,),
           SizedBox(
             height: 50,
           ),
           LoginSignViewText(
-            text: 'or sign up with',
+            text: MyLocalizations.of(context)!.or,
           ),
           Row(
             spacing: 5,
@@ -113,7 +114,7 @@ class LoginViewForm extends StatelessWidget {
               ),
             ],
           ),
-          LoginSignViewText(text: 'Don’t have an account? Sign Up')
+          LoginSignViewText(text: MyLocalizations.of(context)!.an)
         ],
       ),
     );

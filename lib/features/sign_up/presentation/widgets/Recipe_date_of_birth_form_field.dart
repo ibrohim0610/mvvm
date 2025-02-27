@@ -49,8 +49,8 @@ final String title;
             },
             child: Container(
               width: 357,
-              height: 48,
-              padding: EdgeInsets.only(left: 36),
+              height: 49,
+              padding: EdgeInsets.symmetric(horizontal: 20),
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
                 color: AppColors.pink,

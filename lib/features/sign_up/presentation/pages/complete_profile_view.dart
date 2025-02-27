@@ -14,7 +14,18 @@ class CompleteProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.beigeColor,
-      appBar: ViewAppBar(title: 'Profile'),
+      appBar: AppBar(
+        backgroundColor: AppColors.beigeColor,
+        title: Center(
+          child: Text('Profile',
+            style:
+            TextStyle(
+                color: AppColors.redPinkMain,
+                fontWeight: FontWeight.w600,
+                fontSize: 20
+            ),),
+        ),
+      ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 36, vertical: 48),
         children: [

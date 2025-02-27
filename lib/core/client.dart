@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
-  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://10.10.0.216:8888/api/v1", validateStatus: (status) => true));}
+  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://10.10.0.172:8888/api/v1", validateStatus: (status) => true));}
 late final Dio dio;
   Future<Map<String, dynamic>> fetchMyProfile() async {
     var response = await dio.get("/auth/details/1");
@@ -41,6 +41,11 @@ late final Dio dio;
   Future<List<dynamic>>fetchRecipes(int categoryId)async{
     var response = await dio.get('/recipes/list?Category=$categoryId');
     List<dynamic> data = response.data;
+    return data;
+  }
+  Future<dynamic> fetchRecipesById(int recipeId)async{
+    var response = await dio.get('/recipes/detail/$recipeId');
+    dynamic data =  response.data;
     return data;
   }
 
