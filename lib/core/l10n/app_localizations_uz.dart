@@ -56,4 +56,7 @@ class MyLocalizationsUz extends MyLocalizations {
 
   @override
   String get an => 'Hisobingiz yo\'qmi? Ro\'yxatdan o\'ting';
+
+  @override
+  String get categories => 'Categories';
 }

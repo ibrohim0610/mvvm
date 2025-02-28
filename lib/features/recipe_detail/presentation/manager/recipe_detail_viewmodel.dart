@@ -7,10 +7,10 @@ class RecipeDetailViewmodel extends ChangeNotifier{
   RecipeDetailViewmodel({
     required RecipeRepository repo,
     required this.recipeId
-  }):_repo=repo{
+  }):_recipeRepo=repo{
     load();
 }
-  final RecipeRepository _repo;
+  final RecipeRepository _recipeRepo;
   bool isLoading = true;
   final int recipeId;
   late final RecipesModel recipe;
@@ -19,7 +19,7 @@ class RecipeDetailViewmodel extends ChangeNotifier{
     isLoading = true;
     notifyListeners();
 
-    recipe = await _repo.fetchRecipeById(recipeId);
+    recipe = await _recipeRepo.fetchRecipeById(recipeId);
     isLoading = false;
     notifyListeners();
   }

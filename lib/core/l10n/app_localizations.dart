@@ -196,6 +196,12 @@ abstract class MyLocalizations {
   /// In en, this message translates to:
   /// **'Don\'t have an account?Sign Up '**
   String get an;
+
+  /// No description provided for @categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categories;
 }
 
 class _MyLocalizationsDelegate extends LocalizationsDelegate<MyLocalizations> {

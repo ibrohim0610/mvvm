@@ -56,7 +56,7 @@ class ProfilePageContent extends StatelessWidget {
                         title: vm.recipe[index].title,
                         desc: vm.recipe[index].description,
                         rating: vm.recipe[index].rating,
-                        duration: vm.recipe[index].timeRequired);
+                        duration: vm.recipe[index].timeRequired, id: vm.recipe[index].id,);
                   }),
               ListView(
                 padding: EdgeInsets.all(8),

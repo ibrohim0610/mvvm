@@ -22,7 +22,7 @@ class ViewAppBar extends StatelessWidget implements PreferredSizeWidget{
       backgroundColor: AppColors.beigeColor,
       title: Center(
         child: Text(
-          MyLocalizations.of(context)!.signUp,
+          MyLocalizations.of(context)!.login,
           style: TextStyle(
             color: AppColors.redPinkMain,
             fontWeight: FontWeight.w600,

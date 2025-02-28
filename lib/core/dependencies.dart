@@ -3,6 +3,7 @@ import 'package:provider/single_child_widget.dart';
 import 'package:recipe_app/core/l10n/localization.dart';
 import 'package:recipe_app/features/categories/data/repositories/categories_repository.dart';
 import 'package:recipe_app/features/categories_detail/data/repositories/categories_detail_repositories.dart';
+import 'package:recipe_app/features/recipe_detail/data/repositories/recipe_repository.dart';
 import 'package:recipe_app/features/sign_up/presentation/manager/sign_up_view_model.dart';
 
 import '../features/onboarding/data/repositories/onboarding_repositories.dart';
@@ -19,6 +20,9 @@ List<SingleChildWidget> providers = [
     ),
   ),
   Provider(create: (context)=> CategoriesRepository(client: context.read())),
+  Provider(create: (context)=>RecipeRepository(client: context.read())),
+
+
 
   Provider(create: (context)=>CategoriesDetailRepositories(client: context.read())),
   ChangeNotifierProvider(create: (context)=>LocalizationViewModel()),

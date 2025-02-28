@@ -26,6 +26,7 @@ class CategoriesDetailView extends StatelessWidget {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
             itemBuilder: (context, index){
               return ProfileItem(
+                id: viewModel.recipes[index].id,
                   image: viewModel.recipes[index].image,
                   title: viewModel.recipes[index].title,
                   desc: viewModel.recipes[index].desc,

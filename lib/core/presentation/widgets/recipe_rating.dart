@@ -12,7 +12,7 @@ class RecipeRating extends StatelessWidget {
   });
 
   final Color textColor, iconColor;
-  final double rating;
+  final num rating;
   final bool swap;
 
   @override

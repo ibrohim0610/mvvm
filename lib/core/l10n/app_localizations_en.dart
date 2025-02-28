@@ -56,4 +56,7 @@ class MyLocalizationsEn extends MyLocalizations {
 
   @override
   String get an => 'Don\'t have an account?Sign Up ';
+
+  @override
+  String get categories => 'Categories';
 }

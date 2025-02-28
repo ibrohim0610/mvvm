@@ -5,6 +5,7 @@ class CategoriesDetailModel {
   final int id;
   final int categoryId;
   final String title, desc, image;
+  final num rating;
   final int time;
 
   CategoriesDetailModel({
@@ -13,7 +14,8 @@ class CategoriesDetailModel {
     required this.title,
     required this.desc,
     required this.image,
-    required this.time
+    required this.time,
+    required this.rating,
 });
 
   factory CategoriesDetailModel.fromJson(Map<String, dynamic> json){
@@ -22,7 +24,7 @@ class CategoriesDetailModel {
         title: json['title'],
         desc: json['description'],
         image: json['photo'],
-        time: json['timeRequired']);
+        time: json['timeRequired'], rating: json['rating']);
   }
 
 }

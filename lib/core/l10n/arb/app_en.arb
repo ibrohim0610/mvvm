@@ -15,6 +15,7 @@
   "login": "Login",
   "forgot": "Forgot Password",
   "or": "or sign up with",
-  "an": "Don't have an account?Sign Up "
+  "an": "Don't have an account?Sign Up ",
+  "categories": "Categories"
 
 }
