@@ -41,7 +41,10 @@ class RecipeDetailImageInfo extends StatelessWidget {
             Positioned(
               top: 100,
               child: RecipeIconButtonContainer(image: 'assets/svg/play.svg',
-              callback: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (context)=>RecipeDetailVideo(videoUrl: recipe.videoRecipe,),
+              callback: ()=>Navigator.of(context).push(
+                MaterialPageRoute(
+                builder: (context)=>RecipeDetailVideo(
+                  videoUrl: recipe.videoRecipe,),
               ),
               ),
                 iconWidth: 30,
