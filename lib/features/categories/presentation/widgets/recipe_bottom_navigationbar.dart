@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:recipe_app/core/routing/routes.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_icon_button.dart';
 import '../../../../core/utils/colors.dart';
 
@@ -53,7 +54,7 @@ class _BottomNavigationBarVanilla extends StatelessWidget {
             width: 24,
             height: 22,
             color: Colors.white,
-            callback: () {},
+            callback: () =>context.go(Routes.community),
           ),
           RecipeIconButton(
             image: "assets/svg/categories.svg",
@@ -67,7 +68,7 @@ class _BottomNavigationBarVanilla extends StatelessWidget {
             width: 15,
             height: 22,
             color: Colors.white,
-            callback: () {},
+            callback: () => context.go(Routes.completeProfile),
           )
         ],
       ),
