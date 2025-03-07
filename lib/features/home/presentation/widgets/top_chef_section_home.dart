@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/core/core.dart';
-import 'package:recipe_app/features/home/presentation/pages/top_chef_section_item.dart';
+import 'package:recipe_app/features/home/presentation/widgets/top_chef_section_item.dart';
 
 class TopChefSectionHome extends StatelessWidget {
   const TopChefSectionHome({

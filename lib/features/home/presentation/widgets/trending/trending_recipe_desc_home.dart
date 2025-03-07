@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:recipe_app/core/core.dart';
 
 class TrendingRecipeDescHome extends StatelessWidget {
   const TrendingRecipeDescHome({
-    super.key,
+    super.key, required this.rating,
   });
 
+  final num rating;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,19 +20,7 @@ class TrendingRecipeDescHome extends StatelessWidget {
         ),
         Row(
           children: [
-            SvgPicture.asset(
-              'assets/svg/star.svg',
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Text(
-              "5",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12),
-            ),
+            RecipeRating(rating: rating)
           ],
         )
       ],

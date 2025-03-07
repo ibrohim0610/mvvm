@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:recipe_app/core/core.dart';
 
 class TrendingRecipeTitleHome extends StatelessWidget {
   const TrendingRecipeTitleHome({
-    super.key,
+    super.key, required this.time,
   });
+
+  final int time;
 
   @override
   Widget build(BuildContext context) {
@@ -17,19 +20,10 @@ class TrendingRecipeTitleHome extends StatelessWidget {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SvgPicture.asset(
-            'assets/svg/clock.svg',
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            "30 min",
-            style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w400, fontSize: 12),
-          ),
-        ],
+          RecipeTime(time: time)
+          ]
       ),
-    ]);
+    ]
+    );
   }
 }

@@ -7,7 +7,6 @@ class Routes {
   static const completeProfile = '/complete_profile';
   static const categoriesDetail = '/categoriesDetail';
   static const categories = '/categories';
-
   static const recipeDetail = '/recipe-detail/:recipeId';
   static String recipeBuilder(int id)=>"/recipe-detail/$id";
 

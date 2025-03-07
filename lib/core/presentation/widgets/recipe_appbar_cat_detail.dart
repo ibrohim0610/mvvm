@@ -22,7 +22,6 @@ class RecipeAppbarCatDetail extends StatelessWidget implements PreferredSizeWidg
 
   @override
   Size get preferredSize => const Size(double.infinity, 132);
-
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/core/core.dart';
-import 'package:recipe_app/features/home/presentation/pages/recently_added_section_item.dart';
+import 'package:recipe_app/features/home/presentation/widgets/recently_added_section_item.dart';
 import 'package:recipe_app/features/profiles/presentation/widgets/profile_item.dart';
 
 class RecentlyAddedSectionHome extends StatelessWidget {
