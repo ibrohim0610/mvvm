@@ -7,7 +7,7 @@ import 'package:recipe_app/core/routing/routes.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_appbar.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_bottom_navigationbar.dart';
 import 'package:recipe_app/features/community/presentation/manager/community_view_model.dart';
-import 'package:recipe_app/features/community/presentation/pages/recipe_community_list_view.dart';
+import 'package:recipe_app/features/community/presentation/widgets/recipe_community_list_view.dart';
 
 import '../widgets/recipe_community_animated_container.dart';
 

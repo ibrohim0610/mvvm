@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe_app/core/core.dart';
-import 'package:recipe_app/features/community/presentation/pages/community_title_rating.dart';
-import 'package:recipe_app/features/community/presentation/pages/community_user_image_title.dart';
-import 'package:recipe_app/features/community/presentation/pages/recipe_community_image.dart';
-import 'package:recipe_app/features/community/presentation/pages/recipe_community_review.dart';
-import 'package:recipe_app/features/community/presentation/pages/recipe_community_tim_required.dart';
-import 'package:recipe_app/features/community/presentation/pages/recipe_like_button.dart';
+import 'package:recipe_app/features/community/presentation/widgets/community_title_rating.dart';
+import 'package:recipe_app/features/community/presentation/widgets/community_user_image_title.dart';
+import 'package:recipe_app/features/community/presentation/widgets/recipe_community_image.dart';
+import 'package:recipe_app/features/community/presentation/widgets/recipe_community_review.dart';
+import 'package:recipe_app/features/community/presentation/widgets/recipe_community_tim_required.dart';
+import 'package:recipe_app/features/community/presentation/widgets/recipe_like_button.dart';
 
 class RecipeCommunityListView extends StatelessWidget {
   const RecipeCommunityListView({

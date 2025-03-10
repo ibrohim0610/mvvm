@@ -7,10 +7,10 @@ import 'package:recipe_app/core/core.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_appbar.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_bottom_navigationbar.dart';
 import 'package:recipe_app/features/community/presentation/manager/community_view_model.dart';
-import 'package:recipe_app/features/community/presentation/pages/recipe_like_button.dart';
+import 'package:recipe_app/features/community/presentation/widgets/recipe_like_button.dart';
 import 'package:recipe_app/features/community/presentation/widgets/created_date_counter.dart';
 
-import '../widgets/recipe_community_animated_container.dart';
+import 'recipe_community_animated_container.dart';
 
 class CommunityUserImageTitle extends StatelessWidget {
   const CommunityUserImageTitle({
