@@ -2,10 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+<<<<<<< HEAD
+=======
+import 'package:recipe_app/core/core.dart';
+>>>>>>> origin/master
 import 'package:recipe_app/core/dependencies.dart' show providers;
 import 'package:recipe_app/core/l10n/localization.dart';
 import 'core/l10n/app_localizations.dart';
 import 'core/routing/router.dart';
+<<<<<<< HEAD
+=======
+import 'features/sign_up/presentation/manager/sign_up_view_model.dart';
+>>>>>>> origin/master
 
 
 final navigatorKey = GlobalKey<NavigatorState>();

@@ -5,7 +5,11 @@ import 'package:dio/dio.dart';
 import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
+<<<<<<< HEAD
   ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://10.10.2.207:8888/api/v1", validateStatus: (status) => true));}
+=======
+  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://10.10.2.159:8888/api/v1", validateStatus: (status) => true));}
+>>>>>>> origin/master
 late final Dio dio;
   
   
