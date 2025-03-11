@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:recipe_app/features/community/data/models/community_model.dart';
 import 'package:recipe_app/features/community/data/repositories/community_repository.dart';
-import 'package:recipe_app/features/recipe_detail/data/repositories/recipe_repository.dart';
+import 'package:recipe_app/core/data/repositories/recipe_repository.dart';
 
 class CommunityViewModel extends ChangeNotifier{
   CommunityViewModel({

@@ -15,7 +15,6 @@ class TrendingRecipeContainerHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var vm = context.watch<HomeViewModel>();
     return Container(
       width: 430.w,
@@ -39,8 +38,8 @@ class TrendingRecipeContainerHome extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-               YourRecipesItem(  rating: 5, time: 15,  image: vm.yourRecipes[0].image, title: vm.yourRecipes[0].title,),
-               YourRecipesItem( rating: 5, time: 15, image: vm.yourRecipes[5].image, title: vm.yourRecipes[5].title,),
+               YourRecipesItem(  rating: vm.yourRecipes[0].rating, time: vm.yourRecipes[0].time,  image: vm.yourRecipes[0].image, title: vm.yourRecipes[0].title,),
+               YourRecipesItem( rating: vm.yourRecipes[1].rating,time: vm.yourRecipes[1].time, image: vm.yourRecipes[1].image, title: vm.yourRecipes[1].title,),
             ],
           ),
         ],
@@ -54,7 +53,8 @@ class YourRecipesItem extends StatelessWidget {
     super.key, required this.rating, required this.time, required this.image, required this.title,
   });
   final String image, title;
-  final int rating, time;
+  final int  time;
+  final num rating;
 
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TopChefSectionItem extends StatelessWidget {
   const TopChefSectionItem({
@@ -12,9 +13,9 @@ class TopChefSectionItem extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(7),
-          child: Image.asset(image,
-            width: 83,
-            height: 74,),
+          child: Image.network(image,
+            width: 83.w,
+            height: 74.h,),
         ),
         Text(title,
           style: TextStyle(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:recipe_app/core/core.dart';
 
@@ -19,8 +20,8 @@ class RecentlyAddedSectionItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: 169,
-        height: 226,
+        width: 169.w,
+        height: 226.h,
         child: Stack(
           alignment: Alignment.topCenter,
           children: [
@@ -29,9 +30,9 @@ class RecentlyAddedSectionItem extends StatelessWidget {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  width: 158,
-                  height: 90, //
-                  padding: const EdgeInsets.all(8),
+                  width: 158.w,
+                  height: 90.h, //
+                  padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: const BorderRadius.only(
@@ -58,6 +59,8 @@ class RecentlyAddedSectionItem extends StatelessWidget {
                         ),
                       ),
                       Text(
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                         desc,
                         style: const TextStyle(
                           color: Color(0xFF3E2823),
@@ -107,10 +110,10 @@ class RecentlyAddedSectionItem extends StatelessWidget {
             // Image
             ClipRRect(
               borderRadius: BorderRadius.circular(14),
-              child: Image.asset(
+              child: Image.network(
                 image,
-                width: 169,
-                height: 140,
+                width: 169.w,
+                height: 140.h,
                 fit: BoxFit.cover,
               ),
             ),

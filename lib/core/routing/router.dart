@@ -1,7 +1,8 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/core/routing/routes.dart';
-import 'package:recipe_app/features/categories/presentation/manager/categories_view_model.dart';
+import 'package:recipe_app/features/categories/presentation/manager/categories_cubit.dart';
 import 'package:recipe_app/features/categories/presentation/pages/categories_view.dart';
 import 'package:recipe_app/features/categories_detail/presentation/manager/categories_detail_view_model.dart';
 import 'package:recipe_app/features/categories_detail/presentation/pages/categories_detail_view.dart';
@@ -21,7 +22,7 @@ import '../../main.dart';
 final GoRouter router = GoRouter(
 
   navigatorKey: navigatorKey,
-  initialLocation: Routes.community,
+  initialLocation: Routes.home,
 
   routes: [
     GoRoute(path: Routes.home,
@@ -45,8 +46,12 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
         path: Routes.categories,
-        builder: (context, state)=> CategoriesView(
-            viewModel:CategoriesViewModel(repo: context.read()) )
+        builder: (context, state)=> BlocProvider(
+            create: (context)=>CategoriesCubit(
+                repo: context.read(),
+            ),
+          child: CategoriesView(),
+        )
     ),
     GoRoute(
       path: Routes.onboarding,

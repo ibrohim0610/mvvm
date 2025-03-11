@@ -26,16 +26,14 @@ class HomeView extends StatelessWidget {
         appBar: HomeViewAppBar(title: 'Hi Dianne', subtitle: "What are you cooking today",),
         body: ListView(
           children: [
-            SizedBox(
-              height: 16,
-            ),
+            SizedBox(height: 16,),
             TrendingRecipeSection(),
             SizedBox(height: 16),
             TrendingRecipeContainerHome(),
-            // SizedBox(height: 16),
-            // TopChefSectionHome(),
-            // SizedBox(height: 16,),
-            // RecentlyAddedSectionHome()
+            SizedBox(height: 16),
+            TopChefSectionHome(),
+            SizedBox(height: 16,),
+            RecentlyAddedSectionHome()
           ],
         ),
         bottomNavigationBar: RecipeBottomNavigationBar(),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/core/core.dart';
+import 'package:recipe_app/features/home/presentation/manager/home_view_model.dart';
 import 'package:recipe_app/features/home/presentation/widgets/recently_added_section_item.dart';
 import 'package:recipe_app/features/profiles/presentation/widgets/profile_item.dart';
 
@@ -10,6 +12,7 @@ class RecentlyAddedSectionHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final vm = context.watch<HomeViewModel>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36),
       child: Column(
@@ -26,9 +29,8 @@ class RecentlyAddedSectionHome extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              RecentlyAddedSectionItem(image: "assets/images/lunch.png",
-                  title: "Lemonade", desc: "Acidic and refreshing", rating: 4, duration: 30),
-              RecentlyAddedSectionItem(image: "assets/images/dinner.png", title: "Lemonade", desc: "Acidic and refreshing", rating: 4, duration: 30)
+              RecentlyAddedSectionItem(image: vm.recentRecipe[0].image, title: vm.recentRecipe[0].title, desc: vm.recentRecipe[0].desc, rating: 4, duration: 30),
+              RecentlyAddedSectionItem(image: vm.recentRecipe[1].image, title: vm.recentRecipe[1].title, desc: vm.recentRecipe[1].desc, rating: 4, duration: 30),
             ],
           )
         ],
