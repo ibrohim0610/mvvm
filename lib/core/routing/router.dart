@@ -11,6 +11,7 @@ import 'package:recipe_app/features/community/presentation/pages/community_view.
 import 'package:recipe_app/features/home/presentation/pages/home_view.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/manager/recipe_detail_viewmodel.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/pages/recipe_detail_view.dart';
+import 'package:recipe_app/features/review/presentation/pages/review_view.dart';
 import 'package:recipe_app/features/sign_up/presentation/pages/complete_profile_view.dart';
 import '../../features/categories/data/models/categories_model.dart';
 import '../../features/onboarding/presentation/manager/onboarding_view_model.dart';
@@ -22,7 +23,7 @@ import '../../main.dart';
 final GoRouter router = GoRouter(
 
   navigatorKey: navigatorKey,
-  initialLocation: Routes.home,
+  initialLocation: Routes.review,
 
   routes: [
     GoRoute(path: Routes.home,
@@ -34,6 +35,11 @@ final GoRouter router = GoRouter(
       builder: (context, state) {
         return LoginView();
       },
+    ),
+    GoRoute(path: Routes.review,
+    builder: (context, state){
+      return ReviewView();
+    },
     ),
     GoRoute(
         path: Routes.completeProfile,
@@ -47,7 +53,7 @@ final GoRouter router = GoRouter(
     GoRoute(
         path: Routes.categories,
         builder: (context, state)=> BlocProvider(
-            create: (context)=>CategoriesCubit(
+            create: (context)=>CategoriesBloc(
                 repo: context.read(),
             ),
           child: CategoriesView(),

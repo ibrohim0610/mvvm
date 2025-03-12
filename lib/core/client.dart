@@ -50,8 +50,8 @@ late final Dio dio;
     return response.data;
   }
 
-  Future<List<dynamic>> fetchYourRecipes()async{
-    var response = await dio.get('/recipes/list?Limit=2');
+  Future<List<dynamic>> fetchYourRecipes(int limit)async{
+    var response = await dio.get('/recipes/list?Limit=$limit');
     if (response.statusCode == 200) {
       List<dynamic> data = response.data;
       return data;

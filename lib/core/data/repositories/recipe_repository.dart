@@ -39,8 +39,8 @@ class RecipeRepository{
     chefs = rawChefs.map((chef) => TopChefModelSmall.fromJson(chef)).toList();
     return chefs;
   }
-  Future<List<RecipeModelSmall>> fetchYourRecipes() async {
-    var rawRecipe = await client.fetchYourRecipes();
+  Future<List<RecipeModelSmall>> fetchYourRecipes(int limit) async {
+    var rawRecipe = await client.fetchYourRecipes(limit);
     return rawRecipe.map((recipe) => RecipeModelSmall.fromJson(recipe)).toList();
   }
   Future<List<RecipeModelSmall>> fetchRecentRecipes(int limit) async {
