@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
-  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://10.10.2.207:8888/api/v1", validateStatus: (status) => true));}
+  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://10.10.1.173:8888/api/v1", validateStatus: (status) => true));}
 late final Dio dio;
   
   
@@ -14,6 +14,7 @@ late final Dio dio;
     List<dynamic> data = response.data;
     return data;
   }
+  // Future<>
   Future<Map<String, dynamic>> fetchMyProfile() async {
     var response = await dio.get("/auth/details/1");
     if (response.statusCode == 200) {
@@ -23,7 +24,6 @@ late final Dio dio;
       throw Exception("Error");
     }
   }
-
   Future<List<Map<String, dynamic>>> fetchProfileRecipe() async {
     var response = await dio.get('/recipes/list');
     List<Map<String, dynamic>> data = List<Map<String, dynamic>>.from(response.data);
@@ -80,14 +80,26 @@ late final Dio dio;
     var response = await dio.get('/recipes/detail/$recipeId');
     dynamic data =  response.data;
     return data;
+  }Future<Map<String,dynamic>> fetchReview(int recipeId) async {
+    var response = await dio.get('/recipes/reviews/detail/$recipeId');
+    if (response.statusCode == 200) {
+      return Map<String,dynamic>.from(response.data);
+    } else {
+      throw Exception("Sharhlarni yuklab bo‘lmadi!");
+    }
   }
-
+  Future<List<dynamic>> fetchReviewComment(int reviewId) async {
+    var response = await dio.get('/reviews/list?recipeId=$reviewId');
+    if (response.statusCode == 200) {
+      return response.data;
+    }else{
+      throw Exception("/reviews/list?recipeId=$reviewId so'rovimizda xatolik!");
+    }
+  }
   Future<String> login(String login, String password) async {
     var response = await dio.post('/auth/login',
         data: {'login': login, 'password': password}
     );
-
-
     if (response.statusCode == 200) {
       Map<String, String> data = Map<String, String>.from(response.data);
       return data['accessToken']!;
@@ -112,7 +124,6 @@ late final Dio dio;
     FormData formData = FormData.fromMap(
         {'file':  await MultipartFile.fromFile(file.path, filename: file.path.split('/').last)},
     );
-
     var response  = await dio.post(
       '/auth/upload',
       data: formData,

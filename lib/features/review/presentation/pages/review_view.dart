@@ -1,9 +1,13 @@
+import 'package:recipe_app/features/review/presentation/pages/review_comment.dart';
 import "package:flutter/material.dart";
-import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:flutter_svg/flutter_svg.dart";
+import "package:flutter_bloc/flutter_bloc.dart";
 import "package:recipe_app/core/core.dart";
-import 'package:recipe_app/features/review/presentation/widgets/recipe_review_comments.dart';
-import 'package:recipe_app/features/review/presentation/widgets/recipe_review_title.dart';
+import "package:recipe_app/features/categories/presentation/widgets/recipe_bottom_navigationbar.dart";
+import "package:recipe_app/features/review/presentation/manager/reviews_bloc.dart";
+import "package:recipe_app/features/review/presentation/manager/reviews_state.dart";
+import 'package:recipe_app/features/review/presentation/pages/review_recipe.dart';
+import 'package:recipe_app/features/review/presentation/pages/reviews_comment.dart';
+import 'package:recipe_app/features/review/presentation/widgets/recipe_review_app_bar.dart';
 
 class ReviewView extends StatelessWidget {
   const ReviewView({super.key});
@@ -12,72 +16,42 @@ class ReviewView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.beigeColor,
-      appBar: AppBar(
-        backgroundColor: AppColors.beigeColor,
-        centerTitle: true,
-        leading: Center(
-          child: SvgPicture.asset(
-            'assets/svg/arrow.svg',
-          ),
-        ),
-        title: Text(
-          'Reviews',
-          style: TextStyle(
-              color: AppColors.redPinkMain,
-              fontSize: 20,
-              fontWeight: FontWeight.w600),
-        ),
+      appBar: RecipeReviewAppBar(
+        title: "Reviews",
       ),
-      body: ListView(
-        children: [
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-            width: 430.w,
-            height: 223.h,
-            decoration: BoxDecoration(
-                color: AppColors.redPinkMain,
-                borderRadius: BorderRadius.circular(20)),
-            child: Row(
-              spacing: 15,
+      body: BlocBuilder<ReviewsBloc, ReviewsState>(
+        builder: (context, state) {
+          if (state.status == ReviewsStatus.loading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state.status == ReviewsStatus.error) {
+            return const Center(child: Text('Error loading reviews '));
+          } else if (state.status == ReviewsStatus.idle) {
+            }if (state.recipeModel == null || state.comment == null) {
+              return const Center(child: Text("No reviews available"));
+            }
+            final recipe = state.recipeModel!;
+            final comments = state.comment!;
+            return Column(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(14),
-                  child: Image.asset(
-                    'assets/images/chicken_burger.png',
-                    width: 162.w,
-                    height: 163.h,
-                    fit: BoxFit.cover,
-                  ),
+                ReviewRecipe(
+                  recipe: recipe,
                 ),
-                RecipeReviewTitle()
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 36),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Comments',
-                  style: TextStyle(
-                      color: AppColors.redPinkMain,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15),
+                SizedBox(
+                  height: 20,
                 ),
-                SizedBox(height: 25,),
-                RecipeReviewComments(image: 'assets/images/emily.png', userTitle: '@r_joshua', duration: '(15 Mins Ago)',),
-                RecipeReviewComments(image: 'assets/images/andrew.png', userTitle: '@r_andrew', duration: '40 Mins Ago',),
-                RecipeReviewComments(image: 'assets/images/jessica.png', userTitle: '@sweet_jessica', duration: '50 min'),
-                SizedBox(height: 20,),
+                Expanded(
+                    child: ListView.builder(
+                      itemCount: comments.length,
+                      itemBuilder: (context, index) => ReviewComment(
+                            comment: comments[index],
+                          ),
+                    )
+                )
               ],
-            ),
-          ),
-        ],
+            );
+          }
       ),
+      bottomNavigationBar: RecipeBottomNavigationBar(),
     );
   }
 }

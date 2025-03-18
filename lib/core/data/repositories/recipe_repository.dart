@@ -1,10 +1,12 @@
 import 'package:recipe_app/core/client.dart';
 import 'package:recipe_app/core/data/models/recipe_model_small.dart';
+import 'package:recipe_app/core/data/models/recipe_reviews_model.dart';
 import 'package:recipe_app/core/data/models/top_chef_model_small.dart';
 import 'package:recipe_app/features/recipe_detail/data/models/recipes_model.dart';
 
 import '../../../features/categories_detail/data/models/categories_detail_model.dart';
 import '../../../features/community/data/models/community_model.dart';
+import '../models/recipe_reviews_comment_model.dart';
 
 
 class RecipeRepository{
@@ -13,6 +15,7 @@ class RecipeRepository{
   final ApiClient client;
 
   RecipesModel? recipe;
+  ReviewsModel? review;
   CategoriesDetailModel? trendingRecipe;
 
   List<RecipeModelSmall> yourRecipes = [];
@@ -20,6 +23,7 @@ class RecipeRepository{
   List<CommunityModel> community = [];
   List<TopChefModelSmall> chefs= [];
   List<RecipeModelSmall> recentRecipes = [];
+  List<ReviewCommentModel> comment = [];
 
 
   Future<CategoriesDetailModel?> fetchTrendingRecipe()async{
