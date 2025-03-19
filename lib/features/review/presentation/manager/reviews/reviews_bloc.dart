@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/core/data/repositories/review_repository.dart';
-import 'package:recipe_app/features/review/presentation/manager/reviews_state.dart';
+import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_state.dart';
 part 'reviews_event.dart';
 
 class ReviewsBloc extends Bloc<ReviewsEvent,ReviewsState>{

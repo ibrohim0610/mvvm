@@ -81,7 +81,7 @@ class RecipeReviewTitle extends StatelessWidget {
             foregroundColor: AppColors.redPinkMain,
             backgroundColor: Colors.white,
           ),
-          onPressed: ()=> context.go(Routes.addReview),
+          onPressed: ()=> context.go(Routes.createReview),
           child: Center(
             child: Text(
               'Add Review',

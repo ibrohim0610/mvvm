@@ -6,6 +6,7 @@ import 'package:recipe_app/features/recipe_detail/data/models/recipes_model.dart
 
 import '../../../features/categories_detail/data/models/categories_detail_model.dart';
 import '../../../features/community/data/models/community_model.dart';
+import '../models/recipe_create_review_model.dart';
 import '../models/recipe_reviews_comment_model.dart';
 
 
@@ -51,6 +52,15 @@ class RecipeRepository{
     var rawRecipes = await client.fetchRecentRecipes(limit);
     recentRecipes = rawRecipes.map((recipe) => RecipeModelSmall.fromJson(recipe)).toList();
     return recentRecipes;
+  }
+  Future<ReviewsModel> fetchRecipeForReviews(int recipeId) async {
+    var rawRecipe = await client.fetchReview(recipeId);
+    review = ReviewsModel.fromJson(rawRecipe);
+    return review!;
+  }
+  Future<RecipeCreateReviewModel> fetchRecipeForCreateReview(int recipeId) async {
+    var rawRecipe = await client.genericGetRequest<dynamic>('/recipes/create-review/$recipeId');
+    return RecipeCreateReviewModel.fromJson(rawRecipe);
   }
   Future<List<CommunityModel>>fetchCommunity(int limit, {required String order, bool descending = true}) async{
     var rawCommunity = await client.fetchCommunity(limit, order, descending);

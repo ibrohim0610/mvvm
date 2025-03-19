@@ -1,9 +1,0 @@
-import "package:flutter/material.dart";
-import "package:flutter_bloc/flutter_bloc.dart";
-import "package:recipe_app/core/core.dart";
-import "package:recipe_app/features/categories/presentation/widgets/recipe_bottom_navigationbar.dart";
-import "package:recipe_app/features/review/presentation/manager/reviews_bloc.dart";
-import "package:recipe_app/features/review/presentation/manager/reviews_state.dart";
-import 'package:recipe_app/features/review/presentation/pages/review_recipe.dart';
-import 'package:recipe_app/features/review/presentation/pages/reviews_comment.dart';
-import 'package:recipe_app/features/review/presentation/widgets/recipe_review_app_bar.dart';

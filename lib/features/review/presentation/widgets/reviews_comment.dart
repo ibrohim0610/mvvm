@@ -57,9 +57,9 @@ class ReviewComment extends StatelessWidget {
                         fontSize: 15,
                         fontWeight: FontWeight.w400),
                   ),
-                  SizedBox(width: 140),
+                  SizedBox(width: 100),
                   Text(
-                    '(15 mins ago)',
+                    comment.created,
                     style: TextStyle(
                         color: AppColors.redPinkMain,
                         fontSize: 12,

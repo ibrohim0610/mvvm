@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:recipe_app/core/data/models/create_review_model.dart';
 import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
@@ -80,7 +81,8 @@ late final Dio dio;
     var response = await dio.get('/recipes/detail/$recipeId');
     dynamic data =  response.data;
     return data;
-  }Future<Map<String,dynamic>> fetchReview(int recipeId) async {
+  }
+  Future<Map<String,dynamic>> fetchReview(int recipeId) async {
     var response = await dio.get('/recipes/reviews/detail/$recipeId');
     if (response.statusCode == 200) {
       return Map<String,dynamic>.from(response.data);
@@ -96,6 +98,31 @@ late final Dio dio;
       throw Exception("/reviews/list?recipeId=$reviewId so'rovimizda xatolik!");
     }
   }
+  Future<bool>createReview(CreateReviewModel model)async{
+    final formData = FormData.fromMap(await model.toJson());
+    final response = await dio.post('/reviews/create',
+    options: Options(headers: {
+      "Authorization":
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJld0BnbWFpbC5jb20iLCJqdGkiOiI1MGY3OWUzMi04OWExLTQ2ZGEtOWVkMi04NmEwNGY2YTkyNjgiLCJ1c2VyaWQiOiIxIiwiZXhwIjoxODM2OTk3OTMwLCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.fPJTubTifP1m4F1U9NgbOBiOmUg_fQr_tRadPHSfz10"
+    },
+    ),
+      data: formData,
+    );
+    if (response.statusCode == 201) {
+      return true;
+    } else{
+      return false;
+    }
+  }
+  Future<T> genericGetRequest<T>(String path, {Map<String, dynamic>? queryParams}) async {
+    var response = await dio.get(path, queryParameters: queryParams);
+    if (response.statusCode == 200) {
+      return response.data as T;
+    } else {
+      throw DioException(requestOptions: response.requestOptions, response: response);
+    }
+  }
+
   Future<String> login(String login, String password) async {
     var response = await dio.post('/auth/login',
         data: {'login': login, 'password': password}
