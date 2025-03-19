@@ -16,6 +16,7 @@ class CreateReviewAddPhotoSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
+          spacing: 10,
           children: [
             SizedBox.fromSize(
               size: Size(21.w, 21.h),
@@ -32,7 +33,13 @@ class CreateReviewAddPhotoSection extends StatelessWidget {
                 icon: Icon(Icons.add),
               ),
             ),
-            Text("Add photo"),
+            Text("Add photo",
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w500,
+              fontSize: 15
+            ),),
           ],
         ),
         SizedBox(height: 5),

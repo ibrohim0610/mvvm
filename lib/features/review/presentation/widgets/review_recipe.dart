@@ -1,8 +1,11 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
+import "package:go_router/go_router.dart";
 import "package:recipe_app/core/core.dart";
 import "package:recipe_app/core/data/models/recipe_reviews_model.dart";
 import 'package:recipe_app/features/review/presentation/widgets/recipe_review_title.dart';
+
+import "../../../../core/routing/routes.dart";
 
 class ReviewRecipe extends StatelessWidget {
   const ReviewRecipe({
@@ -35,7 +38,9 @@ class ReviewRecipe extends StatelessWidget {
           RecipeReviewTitle(
             title: recipe.title,
             firstName: recipe.user.firstName,
-          lastName: recipe.user.lastName,)
+          lastName: recipe.user.lastName,
+            callback: () => context.push(Routes.getCreateReview(recipe.id)),
+          )
         ],
       ),
     );

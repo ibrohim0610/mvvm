@@ -25,6 +25,7 @@ class CreateReviewView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.beigeColor,
       extendBody: true,
       appBar: RecipeReviewAppBar(
         title: "Leave A Review",

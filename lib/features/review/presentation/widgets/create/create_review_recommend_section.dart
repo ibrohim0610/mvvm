@@ -18,8 +18,13 @@ class CreateReviewRecommendSection extends StatelessWidget {
               fontSize: 12,
               fontFamily: 'Poppins'),
         ),
-        CreateReviewRecommendSectionOption(text: 'No', value: false,),
-        CreateReviewRecommendSectionOption(text: 'Yes', value: true,),
+        Row(
+          spacing: 100,
+          children: [
+            CreateReviewRecommendSectionOption(text: 'No', value: false,),
+            CreateReviewRecommendSectionOption(text: 'Yes', value: true,),
+          ],
+        )
       ],
     );
   }

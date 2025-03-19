@@ -26,8 +26,10 @@ class AddReviewElevatedButtons extends StatelessWidget {
         ),
         RecipeTextButtonContainer(
             text: 'Submit',
-            textColor: AppColors.pinkSub,
-            containerColor: AppColors.pink,
+            textColor: Colors.white,
+            containerColor: AppColors.redPinkMain,
+            containerHeight: 29.h,
+            containerWidth: 168.w,
             callback: ()=> context.read<CreateReviewBloc>().add(CreateReviewSubmit())
         )
       ],

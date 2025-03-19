@@ -11,9 +11,10 @@ class RecipeReviewTitle extends StatelessWidget {
     super.key,
   required this.title,
   required this.firstName,
-  required this.lastName,
+  required this.lastName, required this.callback,
   });
   final String title, firstName,lastName;
+  final VoidCallback callback;
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +82,7 @@ class RecipeReviewTitle extends StatelessWidget {
             foregroundColor: AppColors.redPinkMain,
             backgroundColor: Colors.white,
           ),
-          onPressed: ()=> context.go(Routes.createReview),
+          onPressed: callback,
           child: Center(
             child: Text(
               'Add Review',

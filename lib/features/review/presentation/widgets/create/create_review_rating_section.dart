@@ -28,7 +28,7 @@ class CreateReviewRatingSection extends StatelessWidget {
                     width: 29,
                     height: 29,
                     child: SvgPicture.asset(
-                      "assets/icons/star-${index <= (state.currentIndex ?? -1) ? 'filled' : 'empty'}.svg",
+                      "assets/svg/star-${index <= (state.currentIndex ?? -1) ? 'filled' : 'empty'}.svg",
                       colorFilter: ColorFilter.mode(AppColors.redPinkMain, BlendMode.srcIn),
                       fit: BoxFit.cover,
                     ),
@@ -39,7 +39,11 @@ class CreateReviewRatingSection extends StatelessWidget {
           ),
           Text(
             "Your overall rating",
-            style: TextStyle(fontSize: 12),
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'Poppins',
+                fontSize: 12),
           ),
         ],
       ),

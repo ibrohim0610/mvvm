@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/core/core.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_appbar.dart';
+import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_section_most_liked.dart';
+import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_section_new.dart';
 import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_section_viewed.dart';
 
 class TopChefsView extends StatelessWidget {
@@ -13,7 +15,12 @@ class TopChefsView extends StatelessWidget {
       appBar: RecipeAppbar(title: 'Top chef'),
       body: ListView(
         children: [
-          TopChefsSectionViewed()],
+          TopChefsSectionViewed(),
+          SizedBox(height: 10),
+          TopChefsSectionMostLiked(),
+          SizedBox(height: 10),
+          TopChefsSectionNew()
+        ],
       ),
     );
   }
