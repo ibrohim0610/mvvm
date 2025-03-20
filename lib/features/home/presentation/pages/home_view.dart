@@ -18,7 +18,7 @@ class HomeView extends StatelessWidget {
       create: (BuildContext context) =>
           HomeViewModel(
               catsRepo: context.read(),
-              recipeRepo: context.read()
+              recipeRepo: context.read(), chefRepo: context.read()
           ),
       child: Scaffold(
         extendBody: true,

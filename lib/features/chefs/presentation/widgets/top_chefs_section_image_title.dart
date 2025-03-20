@@ -79,7 +79,7 @@ class TopChefsSectionImageTitle extends StatelessWidget {
                                     backgroundColor: AppColors.pinkSub),
                                 child: Center(
                                   child: Text(
-                                    'Following',
+                                    'Follow',
                                     style: TextStyle(
                                         fontWeight: FontWeight.w400,
                                         fontSize: 8),

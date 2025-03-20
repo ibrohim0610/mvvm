@@ -6,6 +6,7 @@ import 'package:recipe_app/features/categories/presentation/manager/categories_c
 import 'package:recipe_app/features/categories/presentation/pages/categories_view.dart';
 import 'package:recipe_app/features/categories_detail/presentation/manager/categories_detail_view_model.dart';
 import 'package:recipe_app/features/categories_detail/presentation/pages/categories_detail_view.dart';
+import 'package:recipe_app/features/chefs/presentation/pages/top_chef_profile_view.dart';
 import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_view.dart';
 import 'package:recipe_app/features/community/presentation/manager/community_view_model.dart';
 import 'package:recipe_app/features/community/presentation/pages/community_view.dart';
@@ -27,7 +28,7 @@ import '../../main.dart';
 final GoRouter router = GoRouter(
 
   navigatorKey: navigatorKey,
-  initialLocation: Routes.getReviews(2),
+  initialLocation: Routes.topChefProfile,
 
   routes: [
     GoRoute(path: Routes.home,
@@ -114,6 +115,10 @@ final GoRouter router = GoRouter(
     GoRoute(path: Routes.topChefs,
     builder: (context,state){
       return TopChefsView();
+    }),
+    GoRoute(path: Routes.topChefProfile,
+    builder: (context, state){
+      return TopChefProfileView();
     })
   ],
 );

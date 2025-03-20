@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe_app/core/core.dart';
-import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_section_image_title.dart';
+import 'package:recipe_app/features/chefs/presentation/widgets/top_chefs_section_image_title.dart';
 
 class TopChefsSectionViewed extends StatelessWidget {
   const TopChefsSectionViewed({

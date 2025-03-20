@@ -22,7 +22,7 @@ class RecipeRepository{
   List<RecipeModelSmall> yourRecipes = [];
 
   List<CommunityModel> community = [];
-  List<TopChefModelSmall> chefs= [];
+
   List<RecipeModelSmall> recentRecipes = [];
   List<ReviewCommentModel> comment = [];
 
@@ -38,12 +38,7 @@ class RecipeRepository{
     recipe = RecipesModel.fromJson(racRecipe);
     return recipe!;
   }
-  Future<List<TopChefModelSmall>> fetchTopChefs(int limit) async {
-    if (chefs.isNotEmpty) return chefs;
-    var rawChefs = await client.fetchTopChefs(limit);
-    chefs = rawChefs.map((chef) => TopChefModelSmall.fromJson(chef)).toList();
-    return chefs;
-  }
+
   Future<List<RecipeModelSmall>> fetchYourRecipes(int limit) async {
     var rawRecipe = await client.fetchYourRecipes(limit);
     return rawRecipe.map((recipe) => RecipeModelSmall.fromJson(recipe)).toList();
