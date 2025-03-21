@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/core/core.dart';
-import 'package:recipe_app/features/chefs/presentation/pages/top_chef_profile_app_bar.dart';
-import 'package:recipe_app/features/chefs/presentation/pages/top_chef_profile_divider.dart';
-import 'package:recipe_app/features/chefs/presentation/pages/top_chef_profile_follow.dart';
-import 'package:recipe_app/features/chefs/presentation/pages/top_chef_profile_image.dart';
-import 'package:recipe_app/features/chefs/presentation/pages/top_chef_profile_section_recipes.dart';
+import 'package:recipe_app/features/chefs/presentation/widgets/top_chef_profile/top_chef_profile_app_bar.dart';
+import 'package:recipe_app/features/chefs/presentation/widgets/top_chef_profile/top_chef_profile_divider.dart';
+import 'package:recipe_app/features/chefs/presentation/widgets/top_chef_profile/top_chef_profile_follow.dart';
+import 'package:recipe_app/features/chefs/presentation/widgets/top_chef_profile/top_chef_profile_image.dart';
+import 'package:recipe_app/features/chefs/presentation/widgets/top_chef_profile/top_chef_profile_section_recipes.dart';
 
 class TopChefProfileView extends StatelessWidget {
   const TopChefProfileView({super.key});

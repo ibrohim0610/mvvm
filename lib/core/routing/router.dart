@@ -11,12 +11,14 @@ import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_view.dart
 import 'package:recipe_app/features/community/presentation/manager/community_view_model.dart';
 import 'package:recipe_app/features/community/presentation/pages/community_view.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_view.dart';
+import 'package:recipe_app/features/profiles/presentation/pages/profile_page_view.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/manager/recipe_detail_viewmodel.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/pages/recipe_detail_view.dart';
 import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_bloc.dart';
 import 'package:recipe_app/features/review/presentation/pages/add_review.dart';
 import 'package:recipe_app/features/review/presentation/pages/review_view.dart';
 import 'package:recipe_app/features/sign_up/presentation/pages/complete_profile_view.dart';
+import 'package:recipe_app/features/trending_recipe/presentation/pages/trending_recipe_view.dart';
 import '../../features/categories/data/models/categories_model.dart';
 import '../../features/onboarding/presentation/manager/onboarding_view_model.dart';
 import '../../features/onboarding/presentation/pages/onboarding_view.dart';
@@ -28,7 +30,7 @@ import '../../main.dart';
 final GoRouter router = GoRouter(
 
   navigatorKey: navigatorKey,
-  initialLocation: Routes.topChefProfile,
+  initialLocation: Routes.trendingRecipe,
 
   routes: [
     GoRoute(path: Routes.home,
@@ -119,6 +121,14 @@ final GoRouter router = GoRouter(
     GoRoute(path: Routes.topChefProfile,
     builder: (context, state){
       return TopChefProfileView();
+    }),
+    GoRoute(path: Routes.profile,
+    builder: (context, state){
+      return ProfilePageView();
+    }),
+    GoRoute(path: Routes.trendingRecipe,
+    builder: (context,state){
+      return TrendingRecipeView();
     })
   ],
 );

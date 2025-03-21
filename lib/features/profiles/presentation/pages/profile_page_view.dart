@@ -6,7 +6,7 @@ import 'package:recipe_app/features/profiles/presentation/pages/profile_share_ed
 import '../../data/repositories/my_profile_repository.dart';
 import '../widgets/my_profile_page_app_bar.dart';
 import '../widgets/profile_item.dart';
-import 'favorites_item.dart';
+import '../widgets/favorites_item.dart';
 import 'my_profile_view_model.dart';
 
 class ProfilePageView extends StatelessWidget {

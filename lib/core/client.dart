@@ -15,7 +15,6 @@ late final Dio dio;
     List<dynamic> data = response.data;
     return data;
   }
-  // Future<>
   Future<Map<String, dynamic>> fetchMyProfile() async {
     var response = await dio.get("/auth/details/1");
     if (response.statusCode == 200) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/features/chefs/presentation/pages/top_chef_profile_section_image_titlle.dart';
+import 'package:recipe_app/features/chefs/presentation/widgets/top_chef_profile/top_chef_profile_section_image_titlle.dart';
 
 class TopChefProfileSectionRecipes extends StatelessWidget {
   const TopChefProfileSectionRecipes({

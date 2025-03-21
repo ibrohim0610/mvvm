@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipe_app/features/categories_detail/data/models/categories_detail_model.dart';
-
 import '../../../../core/routing/routes.dart';
 
 class ProfileItem extends StatelessWidget {
@@ -56,8 +54,10 @@ class ProfileItem extends StatelessWidget {
                           decoration: TextDecoration.none,
                         ),
                       ),
-                      Text(
-                        desc,
+                      Text(desc,
+                        maxLines: 2,
+                        softWrap: true,
+                        overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                             color: Color(0xFF3E2823),
                             fontSize: 13,
