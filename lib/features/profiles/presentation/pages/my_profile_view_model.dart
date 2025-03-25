@@ -10,7 +10,7 @@ class MyProfileViewModel extends ChangeNotifier{
 }
 bool loading = true;
   final  MyProfileRepository _myProfileRepo;
-  MyProfileModel? myProfile;
+  ProfileModel? myProfile;
   late List<MyProfileRecipeModel> recipe;
 
   Future load()async{

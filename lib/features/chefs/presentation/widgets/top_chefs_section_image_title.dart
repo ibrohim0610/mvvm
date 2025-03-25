@@ -108,11 +108,14 @@ class TopChefsSectionImageTitle extends StatelessWidget {
               ),
             ),
           ),
-          Image.asset(
-            image,
-            width: 170.w,
-            height: 153.h,
-            fit: BoxFit.cover,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(14),
+            child: Image.network(
+              image,
+              width: 170.w,
+              height: 153.h,
+              fit: BoxFit.cover,
+            ),
           ),
         ],
       ),

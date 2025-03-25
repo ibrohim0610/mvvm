@@ -8,13 +8,13 @@ class MyProfileRepository{
   MyProfileRepository({
     required this.client
 });
-  MyProfileModel? myProfile;
+  ProfileModel? myProfile;
 
 
-  Future<MyProfileModel> fetchMyProfile() async{
+  Future<ProfileModel> fetchMyProfile() async{
     if(myProfile != null)return myProfile!;
     var rawMyProfile = await client.fetchMyProfile();
-    myProfile = MyProfileModel.fromJson(rawMyProfile);
+    myProfile = ProfileModel.fromJson(rawMyProfile);
     return myProfile!;
   }
   List<MyProfileRecipeModel> recipe = [];

@@ -6,7 +6,7 @@ import 'package:recipe_app/core/data/models/create_review_model.dart';
 import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
-  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://10.10.2.75:8888/api/v1", validateStatus: (status) => true));}
+  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://192.168.4.146:8888/api/v1", validateStatus: (status) => true));}
 late final Dio dio;
   
   
@@ -63,6 +63,14 @@ late final Dio dio;
     var response = await dio.get('/auth/top-chefs?Limit=$limit');
     List<dynamic> data = response.data;
     return data;
+  }
+  Future<List<dynamic>> fetchTopChefsForHome({int? limit}) async {
+    final response = await dio.get('/auth/top-chefs?Limit=${limit ?? ''}');
+    if (response.statusCode == 200) {
+      return response.data as List<dynamic>;
+    } else {
+      throw Exception("/auth/top-chefs?Limit=${limit ?? ''} so'rovimiz xato ketti");
+    }
   }
 
   Future<List<dynamic>>fetchRecipes(int categoryId)async{

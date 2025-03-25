@@ -47,7 +47,7 @@ class _BottomNavigationBarVanilla extends StatelessWidget {
             width: 25,
             height: 22,
             color: Colors.white,
-            callback: () {},
+            callback: () => context.go(Routes.home),
           ),
           RecipeIconButton(
             image: "assets/svg/community.svg",
@@ -61,14 +61,14 @@ class _BottomNavigationBarVanilla extends StatelessWidget {
             width: 27,
             height: 27,
             color: Colors.white,
-            callback: () => context.go('/categories'),
+            callback: () => context.go(Routes.categories),
           ),
           RecipeIconButton(
             image: "assets/svg/profile.svg",
             width: 15,
             height: 22,
             color: Colors.white,
-            callback: () => context.go(Routes.completeProfile),
+            callback: () => context.go(Routes.profile),
           )
         ],
       ),

@@ -42,7 +42,7 @@ class MyProfileAppBarTitle extends StatelessWidget {
             ),
           ),
           Text(
-            vm.myProfile!.presentation,
+            vm.myProfile!.bio,
             maxLines: 2,
             softWrap: true,
             style: TextStyle(

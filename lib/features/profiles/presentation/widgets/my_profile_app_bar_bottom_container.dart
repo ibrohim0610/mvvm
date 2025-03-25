@@ -26,7 +26,7 @@ class MyProfileAppBarBottomContainer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           ProfileAppBarBottomStats(
-            number: vm.myProfile!.recipesCount,
+            number: vm.myProfile!.recipes,
             subtitle: "recipes",
           ),
           Container(
@@ -35,7 +35,7 @@ class MyProfileAppBarBottomContainer extends StatelessWidget {
             color: AppColors.pink,
           ),
           ProfileAppBarBottomStats(
-            number: vm.myProfile!.followingCount,
+            number: vm.myProfile!.following,
             subtitle: "following",
           ),
           Container(
@@ -44,7 +44,7 @@ class MyProfileAppBarBottomContainer extends StatelessWidget {
             color: AppColors.pink,
           ),
           ProfileAppBarBottomStats(
-            number: vm.myProfile!.followerCount,
+            number: vm.myProfile!.followers,
             subtitle: "followers",
           ),
         ],

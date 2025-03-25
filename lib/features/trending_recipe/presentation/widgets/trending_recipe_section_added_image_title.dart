@@ -7,8 +7,9 @@ class TrendingRecipeSectionAddedImageTitle extends StatelessWidget {
   const TrendingRecipeSectionAddedImageTitle({
     super.key, required this.image, required this.title, required this.desc, required this.username, required this.duration, required this.rating,
   });
-  final String image, title, desc, username,duration;
-  final String rating;
+  final String image, title, desc, username;
+  final int duration;
+  final num rating;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +45,8 @@ class TrendingRecipeSectionAddedImageTitle extends StatelessWidget {
                   ),
                   Text(
                     desc,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 12,
@@ -66,7 +69,7 @@ class TrendingRecipeSectionAddedImageTitle extends StatelessWidget {
                         children: [
                           SvgPicture.asset('assets/svg/clock.svg'),
                           Text(
-                            duration,
+                            "${duration}min",
                             style: TextStyle(
                               color: AppColors.pinkSub,
                               fontFamily: 'Poppins',
@@ -95,7 +98,7 @@ class TrendingRecipeSectionAddedImageTitle extends StatelessWidget {
                         spacing: 5,
                         children: [
                           Text(
-                            rating,
+                            "${rating}",
                             style: TextStyle(
                               color: AppColors.pinkSub,
                               fontFamily: 'Poppins',
@@ -107,7 +110,7 @@ class TrendingRecipeSectionAddedImageTitle extends StatelessWidget {
                         ],
                       )
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
@@ -115,7 +118,7 @@ class TrendingRecipeSectionAddedImageTitle extends StatelessWidget {
           Positioned(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(14),
-              child: Image.asset(
+              child: Image.network(
                 image,
                 width: 151.w,
                 height: 150.h,

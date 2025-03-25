@@ -6,6 +6,7 @@ import 'package:recipe_app/features/categories/presentation/manager/categories_c
 import 'package:recipe_app/features/categories/presentation/pages/categories_view.dart';
 import 'package:recipe_app/features/categories_detail/presentation/manager/categories_detail_view_model.dart';
 import 'package:recipe_app/features/categories_detail/presentation/pages/categories_detail_view.dart';
+import 'package:recipe_app/features/chefs/presentation/manager/top_chefs_bloc.dart';
 import 'package:recipe_app/features/chefs/presentation/pages/top_chef_profile_view.dart';
 import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_view.dart';
 import 'package:recipe_app/features/community/presentation/manager/community_view_model.dart';
@@ -18,6 +19,7 @@ import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_
 import 'package:recipe_app/features/review/presentation/pages/add_review.dart';
 import 'package:recipe_app/features/review/presentation/pages/review_view.dart';
 import 'package:recipe_app/features/sign_up/presentation/pages/complete_profile_view.dart';
+import 'package:recipe_app/features/trending_recipe/presentation/manager/trending_recipe_bloc.dart';
 import 'package:recipe_app/features/trending_recipe/presentation/pages/trending_recipe_view.dart';
 import '../../features/categories/data/models/categories_model.dart';
 import '../../features/onboarding/presentation/manager/onboarding_view_model.dart';
@@ -114,10 +116,15 @@ final GoRouter router = GoRouter(
         child: CreateReviewView(),
       ),
     ),
-    GoRoute(path: Routes.topChefs,
-    builder: (context,state){
-      return TopChefsView();
-    }),
+    GoRoute(
+      path: Routes.topChefs,
+      builder: (context, state) => BlocProvider(
+        create: (context) => TopChefsBloc(
+          chefRepo: context.read(),
+        ),
+        child: TopChefsView(),
+      ),
+    ),
     GoRoute(path: Routes.topChefProfile,
     builder: (context, state){
       return TopChefProfileView();
@@ -126,10 +133,15 @@ final GoRouter router = GoRouter(
     builder: (context, state){
       return ProfilePageView();
     }),
-    GoRoute(path: Routes.trendingRecipe,
-    builder: (context,state){
-      return TrendingRecipeView();
-    })
+    GoRoute(
+      path: Routes.trendingRecipe,
+      builder: (context, state) => BlocProvider(
+        create: (context) => TrendingRecipeBloc(
+          trendingRepo: context.read(),
+        ),
+        child: TrendingRecipeView(),
+      ),
+    ),
   ],
 );
 

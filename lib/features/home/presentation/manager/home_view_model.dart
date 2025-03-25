@@ -41,7 +41,7 @@ class HomeViewModel extends ChangeNotifier {
     notifyListeners();
     categories = await _catsRepo.fetchCategories();
     yourRecipes = await _recipeRepo.fetchYourRecipes(2);
-    trendingRecipe = await _recipeRepo.fetchTrendingRecipe();
+    trendingRecipe = await _recipeRepo.fetchTrendingRecipeHome();
     chefs = await _chefRepo.fetchTopChefs(4);
     recentRecipe = await _recipeRepo.fetchRecentRecipes(2);
     selected = categories.firstOrNull;
